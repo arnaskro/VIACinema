@@ -1,0 +1,11 @@
+﻿body {
+}
+
+#Logo {
+    height: 30px;
+    margin-top: -5px;
+}
+
+.navbar {
+    border-radius: 0 !important;
+}
