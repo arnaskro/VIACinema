@@ -11,6 +11,8 @@
     <EntitySet Name="Seats" EntityType="VIACinema.Store.Seats" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MovieSessions" EntityType="VIACinema.Store.MovieSessions" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Users" EntityType="VIACinema.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CreditCards" EntityType="VIACinema.Store.CreditCards" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Reservations" EntityType="VIACinema.Store.Reservations" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="StageSeat" Association="VIACinema.Store.StageSeat">
       <End Role="Stage" EntitySet="Stages" />
       <End Role="Seat" EntitySet="Seats" />
@@ -22,6 +24,22 @@
     <AssociationSet Name="MovieSessionStage" Association="VIACinema.Store.MovieSessionStage">
       <End Role="MovieSession" EntitySet="MovieSessions" />
       <End Role="Stage" EntitySet="Stages" />
+    </AssociationSet>
+    <AssociationSet Name="UserCreditCard" Association="VIACinema.Store.UserCreditCard">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CreditCard" EntitySet="CreditCards" />
+    </AssociationSet>
+    <AssociationSet Name="MovieSessionReservation" Association="VIACinema.Store.MovieSessionReservation">
+      <End Role="MovieSession" EntitySet="MovieSessions" />
+      <End Role="Reservation" EntitySet="Reservations" />
+    </AssociationSet>
+    <AssociationSet Name="UserReservation" Association="VIACinema.Store.UserReservation">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Reservation" EntitySet="Reservations" />
+    </AssociationSet>
+    <AssociationSet Name="SeatReservation" Association="VIACinema.Store.SeatReservation">
+      <End Role="Seat" EntitySet="Seats" />
+      <End Role="Reservation" EntitySet="Reservations" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Movies">
@@ -70,6 +88,26 @@
     <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Admin" Type="bit" Nullable="false" DefaultValue="false" />
   </EntityType>
+  <EntityType Name="CreditCards">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExpirationDate" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="CVC" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reservations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PricePayed" Type="float" Nullable="false" />
+    <Property Name="MovieSessionId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="SeatId" Type="int" Nullable="false" />
+  </EntityType>
   <Association Name="StageSeat">
     <End Role="Stage" Type="VIACinema.Store.Stages" Multiplicity="1" />
     <End Role="Seat" Type="VIACinema.Store.Seats" Multiplicity="*" />
@@ -103,6 +141,54 @@
       </Principal>
       <Dependent Role="MovieSession">
         <PropertyRef Name="StageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserCreditCard">
+    <End Role="User" Type="VIACinema.Store.Users" Multiplicity="1" />
+    <End Role="CreditCard" Type="VIACinema.Store.CreditCards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CreditCard">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MovieSessionReservation">
+    <End Role="MovieSession" Type="VIACinema.Store.MovieSessions" Multiplicity="1" />
+    <End Role="Reservation" Type="VIACinema.Store.Reservations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MovieSession">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="MovieSessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserReservation">
+    <End Role="User" Type="VIACinema.Store.Users" Multiplicity="1" />
+    <End Role="Reservation" Type="VIACinema.Store.Reservations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SeatReservation">
+    <End Role="Seat" Type="VIACinema.Store.Seats" Multiplicity="1" />
+    <End Role="Reservation" Type="VIACinema.Store.Reservations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seat">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="SeatId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -365,6 +451,28 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Admin" ColumnName="Admin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CreditCards">
+      <EntityTypeMapping TypeName="IsTypeOf(VIACinema.CreditCard)">
+        <MappingFragment StoreEntitySet="CreditCards">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+          <ScalarProperty Name="CVC" ColumnName="CVC" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservations">
+      <EntityTypeMapping TypeName="IsTypeOf(VIACinema.Reservation)">
+        <MappingFragment StoreEntitySet="Reservations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PricePayed" ColumnName="PricePayed" />
+          <ScalarProperty Name="MovieSessionId" ColumnName="MovieSessionId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SeatId" ColumnName="SeatId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

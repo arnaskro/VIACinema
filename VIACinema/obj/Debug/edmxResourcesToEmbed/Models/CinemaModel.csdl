@@ -17,6 +17,25 @@
       <End Role="MovieSession" EntitySet="MovieSessions" />
       <End Role="Stage" EntitySet="Stages" />
     </AssociationSet>
+    <EntitySet Name="Users" EntityType="VIACinema.User" />
+    <EntitySet Name="CreditCards" EntityType="VIACinema.CreditCard" />
+    <AssociationSet Name="UserCreditCard" Association="VIACinema.UserCreditCard">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CreditCard" EntitySet="CreditCards" />
+    </AssociationSet>
+    <EntitySet Name="Reservations" EntityType="VIACinema.Reservation" />
+    <AssociationSet Name="MovieSessionReservation" Association="VIACinema.MovieSessionReservation">
+      <End Role="MovieSession" EntitySet="MovieSessions" />
+      <End Role="Reservation" EntitySet="Reservations" />
+    </AssociationSet>
+    <AssociationSet Name="UserReservation" Association="VIACinema.UserReservation">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Reservation" EntitySet="Reservations" />
+    </AssociationSet>
+    <AssociationSet Name="SeatReservation" Association="VIACinema.SeatReservation">
+      <End Role="Seat" EntitySet="Seats" />
+      <End Role="Reservation" EntitySet="Reservations" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Movie">
     <Key>
@@ -33,7 +52,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Title" Type="String" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="MaxNumberOfSeats" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Seats" Relationship="VIACinema.StageSeat" FromRole="Stage" ToRole="Seat" />
     <NavigationProperty Name="MovieSessions" Relationship="VIACinema.MovieSessionStage" FromRole="Stage" ToRole="MovieSession" />
@@ -46,6 +65,7 @@
     <Property Name="Number" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Stage" Relationship="VIACinema.StageSeat" FromRole="Seat" ToRole="Stage" />
     <Property Name="StageId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Reservations" Relationship="VIACinema.SeatReservation" FromRole="Seat" ToRole="Reservation" />
   </EntityType>
   <Association Name="StageSeat">
     <End Type="VIACinema.Stage" Role="Stage" Multiplicity="1" />
@@ -65,11 +85,12 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Price" Type="Double" Nullable="false" />
-    <Property Name="SessionDate" Type="DateTime" Nullable="false" />
+    <Property Name="SessionDate" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Movie" Relationship="VIACinema.MovieSessionMovie" FromRole="MovieSession" ToRole="Movie" />
     <Property Name="MovieId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Stage" Relationship="VIACinema.MovieSessionStage" FromRole="MovieSession" ToRole="Stage" />
     <Property Name="StageId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Reservations" Relationship="VIACinema.MovieSessionReservation" FromRole="MovieSession" ToRole="Reservation" />
   </EntityType>
   <Association Name="MovieSessionMovie">
     <End Type="VIACinema.MovieSession" Role="MovieSession" Multiplicity="*" />
@@ -92,6 +113,91 @@
       </Principal>
       <Dependent Role="MovieSession">
         <PropertyRef Name="StageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Admin" Type="Boolean" Nullable="false" DefaultValue="False" />
+    <NavigationProperty Name="CreditCards" Relationship="VIACinema.UserCreditCard" FromRole="User" ToRole="CreditCard" />
+    <NavigationProperty Name="Reservations" Relationship="VIACinema.UserReservation" FromRole="User" ToRole="Reservation" />
+  </EntityType>
+  <EntityType Name="CreditCard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="false" />
+    <Property Name="ExpirationDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CVC" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="VIACinema.UserCreditCard" FromRole="CreditCard" ToRole="User" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="UserCreditCard">
+    <End Type="VIACinema.User" Role="User" Multiplicity="1" />
+    <End Type="VIACinema.CreditCard" Role="CreditCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CreditCard">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PricePayed" Type="Double" Nullable="false" />
+    <NavigationProperty Name="MovieSession" Relationship="VIACinema.MovieSessionReservation" FromRole="Reservation" ToRole="MovieSession" />
+    <Property Name="MovieSessionId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="VIACinema.UserReservation" FromRole="Reservation" ToRole="User" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Seat" Relationship="VIACinema.SeatReservation" FromRole="Reservation" ToRole="Seat" />
+    <Property Name="SeatId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="MovieSessionReservation">
+    <End Type="VIACinema.MovieSession" Role="MovieSession" Multiplicity="1" />
+    <End Type="VIACinema.Reservation" Role="Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MovieSession">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="MovieSessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserReservation">
+    <End Type="VIACinema.User" Role="User" Multiplicity="1" />
+    <End Type="VIACinema.Reservation" Role="Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SeatReservation">
+    <End Type="VIACinema.Seat" Role="Seat" Multiplicity="1" />
+    <End Type="VIACinema.Reservation" Role="Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seat">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="SeatId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

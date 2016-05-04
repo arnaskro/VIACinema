@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/04/2016 12:05:47
+-- Date Created: 05/04/2016 12:11:28
 -- Generated from EDMX file: C:\Users\arnas\OneDrive\VisualStudio\VIACinema\VIACinema\VIACinema\Models\CinemaModel.edmx
 -- --------------------------------------------------
 
@@ -71,7 +71,7 @@ GO
 -- Creating table 'Seats'
 CREATE TABLE [dbo].[Seats] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Number] nvarchar(max)  NOT NULL,
+    [Number] int  NOT NULL,
     [StageId] int  NOT NULL
 );
 GO
