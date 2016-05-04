@@ -104,6 +104,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administration\AddMovie.aspx" />
     <Content Include="Content\css\bootstrap-theme.css" />
     <Content Include="Content\css\bootstrap-theme.min.css" />
     <Content Include="Content\css\bootstrap.css" />
@@ -122,6 +123,7 @@
     </EntityDeploy>
     <Content Include="Models\CinemaModel.edmx.diagram">
       <DependentUpon>CinemaModel.edmx</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Main.Master" />
     <Content Include="Content\css\bootstrap-theme.css.map" />
@@ -167,6 +169,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\AddMovie.aspx.cs">
+      <DependentUpon>AddMovie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\AddMovie.aspx.designer.cs">
+      <DependentUpon>AddMovie.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

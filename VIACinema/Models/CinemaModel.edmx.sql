@@ -2,13 +2,22 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
+<<<<<<< HEAD
 -- Date Created: 05/04/2016 11:38:58
 -- Generated from EDMX file: C:\Users\user\Documents\Visual Studio 2015\Projects\VIACinema\VIACinema\Models\CinemaModel.edmx
+=======
+-- Date Created: 05/04/2016 10:47:07
+-- Generated from EDMX file: C:\Users\arnas\OneDrive\VisualStudio\VIACinema\VIACinema\VIACinema\Models\CinemaModel.edmx
+>>>>>>> b642b2896e1542e19621f969c928c9d861174d00
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
+<<<<<<< HEAD
 USE [C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\VIACINEMA\VIACINEMA\APP_DATA\DBCINEMA.MDF]
+=======
+USE [C:\USERS\ARNAS\ONEDRIVE\VISUALSTUDIO\VIACINEMA\VIACINEMA\VIACINEMA\APP_DATA\DBCINEMA.MDF];
+>>>>>>> b642b2896e1542e19621f969c928c9d861174d00
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -56,7 +65,7 @@ CREATE TABLE [dbo].[Movies] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Title] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [ReleaseDate] datetime  NOT NULL
+    [ReleaseDate] datetime  NULL
 );
 GO
 
