@@ -12,6 +12,7 @@
         <EntityTypeShape EntityType="VIACinema.MovieSession" Width="1.5" PointX="6.25" PointY="1.25" />
         <AssociationConnector Association="VIACinema.MovieSessionMovie" />
         <AssociationConnector Association="VIACinema.MovieSessionStage" />
+        <EntityTypeShape EntityType="VIACinema.User" Width="1.5" PointX="9.125" PointY="1.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

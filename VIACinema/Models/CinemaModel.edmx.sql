@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/03/2016 23:46:50
--- Generated from EDMX file: C:\Users\arnas\OneDrive\VisualStudio\VIACinema\VIACinema\VIACinema\Models\CinemaModel.edmx
+-- Date Created: 05/04/2016 11:38:58
+-- Generated from EDMX file: C:\Users\user\Documents\Visual Studio 2015\Projects\VIACinema\VIACinema\Models\CinemaModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [DBCINEMA];
+USE [C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\VIACINEMA\VIACINEMA\APP_DATA\DBCINEMA.MDF]
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -17,14 +17,14 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_StageSeat]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Seats] DROP CONSTRAINT [FK_StageSeat];
-GO
 IF OBJECT_ID(N'[dbo].[FK_MovieSessionMovie]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[MovieSessions] DROP CONSTRAINT [FK_MovieSessionMovie];
 GO
 IF OBJECT_ID(N'[dbo].[FK_MovieSessionStage]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[MovieSessions] DROP CONSTRAINT [FK_MovieSessionStage];
+GO
+IF OBJECT_ID(N'[dbo].[FK_StageSeat]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Seats] DROP CONSTRAINT [FK_StageSeat];
 GO
 
 -- --------------------------------------------------
@@ -34,14 +34,17 @@ GO
 IF OBJECT_ID(N'[dbo].[Movies]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Movies];
 GO
-IF OBJECT_ID(N'[dbo].[Stages]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Stages];
+IF OBJECT_ID(N'[dbo].[MovieSessions]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MovieSessions];
 GO
 IF OBJECT_ID(N'[dbo].[Seats]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Seats];
 GO
-IF OBJECT_ID(N'[dbo].[MovieSessions]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[MovieSessions];
+IF OBJECT_ID(N'[dbo].[Stages]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Stages];
+GO
+IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Users];
 GO
 
 -- --------------------------------------------------
@@ -83,6 +86,17 @@ CREATE TABLE [dbo].[MovieSessions] (
 );
 GO
 
+-- Creating table 'Users'
+CREATE TABLE [dbo].[Users] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(max)  NOT NULL,
+    [Password] nvarchar(max)  NOT NULL,
+    [Email] nvarchar(max)  NOT NULL,
+    [Address] nvarchar(max)  NOT NULL,
+    [Admin] bit  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -108,6 +122,12 @@ GO
 -- Creating primary key on [Id] in table 'MovieSessions'
 ALTER TABLE [dbo].[MovieSessions]
 ADD CONSTRAINT [PK_MovieSessions]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Users'
+ALTER TABLE [dbo].[Users]
+ADD CONSTRAINT [PK_Users]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
