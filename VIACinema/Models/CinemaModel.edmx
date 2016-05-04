@@ -10,10 +10,7 @@
     <EntitySet Name="Stages" EntityType="VIACinema.Store.Stages" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Seats" EntityType="VIACinema.Store.Seats" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MovieSessions" EntityType="VIACinema.Store.MovieSessions" store:Type="Tables" Schema="dbo" />
-<<<<<<< HEAD
     <EntitySet Name="Users" EntityType="VIACinema.Store.Users" store:Type="Tables" Schema="dbo" />
-=======
->>>>>>> b642b2896e1542e19621f969c928c9d861174d00
     <AssociationSet Name="StageSeat" Association="VIACinema.Store.StageSeat">
       <End Role="Stage" EntitySet="Stages" />
       <End Role="Seat" EntitySet="Seats" />
@@ -137,15 +134,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-<<<<<<< HEAD
-          <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="ReleaseDate" Type="DateTime" Nullable="false" Precision="3" />
-=======
           <Property Name="Title" Type="String" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" />
           <Property Name="ReleaseDate" Type="DateTime" Nullable="true" annotation:StoreGeneratedPattern="Computed" />
->>>>>>> b642b2896e1542e19621f969c928c9d861174d00
           <NavigationProperty Name="MovieSessions" Relationship="VIACinema.MovieSessionMovie" FromRole="Movie" ToRole="MovieSession" />
         </EntityType>
         <EntityType Name="Stage">
