@@ -26,10 +26,12 @@ namespace VIACinema
                             select q;
 
                 User[] users = query.ToArray<User>();
+
                 for(int i=0; i < users.Length; i++)
                 {
                     if(users[i].Email == email.Text && users[i].Password == password.Text)
                     {
+                        Session["user"] = users[i];
                         check = true;
                         break;
                     }
