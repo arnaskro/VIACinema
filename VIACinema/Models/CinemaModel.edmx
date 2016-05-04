@@ -46,7 +46,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Number" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Number" Type="int" Nullable="false" />
     <Property Name="StageId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="MovieSessions">
@@ -172,7 +172,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Stage" Relationship="VIACinema.StageSeat" FromRole="Seat" ToRole="Stage" />
           <Property Name="StageId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Reservations" Relationship="VIACinema.SeatReservation" FromRole="Seat" ToRole="Reservation" />

@@ -17,7 +17,6 @@
       <End Role="MovieSession" EntitySet="MovieSessions" />
       <End Role="Stage" EntitySet="Stages" />
     </AssociationSet>
-    <EntitySet Name="Users" EntityType="VIACinema.User" />
   </EntityContainer>
   <EntityType Name="Movie">
     <Key>
@@ -34,7 +33,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" Nullable="false" />
     <Property Name="MaxNumberOfSeats" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Seats" Relationship="VIACinema.StageSeat" FromRole="Stage" ToRole="Seat" />
     <NavigationProperty Name="MovieSessions" Relationship="VIACinema.MovieSessionStage" FromRole="Stage" ToRole="MovieSession" />
@@ -44,7 +43,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Number" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Number" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Stage" Relationship="VIACinema.StageSeat" FromRole="Seat" ToRole="Stage" />
     <Property Name="StageId" Type="Int32" Nullable="false" />
   </EntityType>
@@ -66,7 +65,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Price" Type="Double" Nullable="false" />
-    <Property Name="SessionDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SessionDate" Type="DateTime" Nullable="false" />
     <NavigationProperty Name="Movie" Relationship="VIACinema.MovieSessionMovie" FromRole="MovieSession" ToRole="Movie" />
     <Property Name="MovieId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Stage" Relationship="VIACinema.MovieSessionStage" FromRole="MovieSession" ToRole="Stage" />
@@ -96,15 +95,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="User">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="Admin" Type="Boolean" Nullable="false" DefaultValue="False" />
-  </EntityType>
 </Schema>

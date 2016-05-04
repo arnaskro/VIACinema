@@ -21,7 +21,7 @@ namespace VIACinema.Models
         }
     
         public int Id { get; set; }
-        public string Number { get; set; }
+        public int Number { get; set; }
         public int StageId { get; set; }
     
         public virtual Stage Stage { get; set; }

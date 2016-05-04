@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administration\AddMovie.aspx" />
+    <Content Include="Administration\AddStage.aspx" />
     <Content Include="Content\css\bootstrap-theme.css" />
     <Content Include="Content\css\bootstrap-theme.min.css" />
     <Content Include="Content\css\bootstrap.css" />
@@ -175,6 +176,13 @@
     </Compile>
     <Compile Include="Administration\AddMovie.aspx.designer.cs">
       <DependentUpon>AddMovie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\AddStage.aspx.cs">
+      <DependentUpon>AddStage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\AddStage.aspx.designer.cs">
+      <DependentUpon>AddStage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
