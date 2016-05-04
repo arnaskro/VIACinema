@@ -14,12 +14,23 @@ namespace VIACinema
         {
             using (CinemaContext db = new CinemaContext() )
             {
-                var query = from q 
-                            in db.Movies
+                var query = from q
+                            in db.MovieSessions
                             select q;
 
-                GridMovies.DataSource = query.ToList();
-                GridMovies.DataBind();
+                var list = query.ToList();
+
+                if (list.Count == 0)
+                {
+                    (Master as Main).Show_Alert("There are no movie sessions!", "info");
+                }
+                else 
+                {
+                    GridMovies.DataSource = list;
+                    GridMovies.DataBind();
+                }
+
+               
 
             }
         }
