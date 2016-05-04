@@ -25,7 +25,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Title" Type="String" Nullable="false" />
     <Property Name="Description" Type="String" Nullable="false" />
-    <Property Name="ReleaseDate" Type="DateTime" Nullable="false" />
+    <Property Name="ReleaseDate" Type="DateTime" Nullable="true" annotation:StoreGeneratedPattern="Computed" />
     <NavigationProperty Name="MovieSessions" Relationship="VIACinema.MovieSessionMovie" FromRole="Movie" ToRole="MovieSession" />
   </EntityType>
   <EntityType Name="Stage">
