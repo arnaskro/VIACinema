@@ -40,7 +40,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Number" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Number" Type="int" Nullable="false" />
     <Property Name="StageId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="MovieSessions">
