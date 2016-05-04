@@ -13,14 +13,16 @@ namespace VIACinema
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["login"] = false;
+            if (Session["user"] != null)
+            {
+                Server.Transfer("/Home.aspx", true);
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             using (var db = new CinemaContext())
             {
-                var check = false;
                 var query = from q
                             in db.Users
                             select q;
@@ -32,18 +34,18 @@ namespace VIACinema
                     if(users[i].Email == email.Text && users[i].Password == password.Text)
                     {
                         Session["user"] = users[i];
-                        check = true;
                         break;
                     }
                 }
 
-                if (check) {
-                    Session["login"] = true;
-                    Label3.Text = "Successful login " + Session["login"];
-
+                if (Session["user"]!=null)
+                {
+                    Server.Transfer("/Home.aspx", true);
                 }
-                else
-                    Label3.Text = "Incorrect email or password " + Session["login"];
+                else {
+                    (Master as Main).Show_Alert("Incorrect email or password!", "error");
+                }
+
             }
         }
     }

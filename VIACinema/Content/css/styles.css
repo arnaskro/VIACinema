@@ -9,3 +9,8 @@
 .navbar {
     border-radius: 0 !important;
 }
+
+button, input, select, textarea {
+    height: auto;
+    width: auto;
+}

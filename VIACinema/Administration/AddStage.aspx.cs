@@ -12,7 +12,10 @@ namespace VIACinema.Administration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if ((Session["user"] == null) || (((User)Session["user"]).Admin == false))
+            {
+                Server.Transfer("/Home.aspx", true);
+            }
         }
 
         protected void SubmitAddStage_Click(object sender, EventArgs e)
@@ -24,11 +27,11 @@ namespace VIACinema.Administration
                 {
                     var title = InputTitle.Text;
                     //var numberOfSeats = int.Parse(InputMaxSeats.ToString());
-                    var numberOfSeats = Convert.ToInt32(InputMaxSeats.ToString());
+                    var numberOfSeats = InputMaxSeats.Text;
 
                     var stage = new Stage();
                     stage.Title = title;
-                    stage.MaxNumberOfSeats = numberOfSeats;
+                    stage.MaxNumberOfSeats = int.Parse(numberOfSeats);
                     
                     db.Stages.Add(stage);
 
@@ -44,16 +47,12 @@ namespace VIACinema.Administration
 
 
                     db.SaveChanges();
-                    
-                    Master.FindControl("AlertError").Visible = false;
-                    Master.FindControl("AlertSuccess").Visible = true;
-                    ((Label)Master.FindControl("AlertSuccessLabel")).Text = "Stage & Seats added successfully!";
+
+                    (Master as Main).Show_Alert("Stage added successfully!", "success");
                 }
                 catch (Exception ex)
                 {
-                    Master.FindControl("AlertError").Visible = true;
-                    Master.FindControl("AlertSuccess").Visible = false;
-                    ((Label)Master.FindControl("AlertErrorLabel")).Text = ex.Message;
+                    (Master as Main).Show_Alert(ex.Message, "error");
                 }
 
             }

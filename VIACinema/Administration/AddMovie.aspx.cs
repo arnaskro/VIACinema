@@ -12,7 +12,10 @@ namespace VIACinema.Administration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if ( (Session["user"] == null) || (((User)Session["user"]).Admin == false) )
+            {
+                Server.Transfer("/Home.aspx", true);
+            }
         }
 
         protected void SubmitAddMovie_Click(object sender, EventArgs e)
@@ -33,15 +36,10 @@ namespace VIACinema.Administration
                     db.Movies.Add(movie);
                     db.SaveChanges();
 
-
-                    Master.FindControl("AlertError").Visible = false;
-                    Master.FindControl("AlertSuccess").Visible = true;
-                    ((Label)Master.FindControl("AlertSuccessLabel")).Text = "Movie added successfully!";
+                    (Master as Main).Show_Alert("Movie added successfully!", "success");
                 } catch (Exception ex)
                 {
-                    Master.FindControl("AlertError").Visible = true;
-                    Master.FindControl("AlertSuccess").Visible = false;
-                    ((Label)Master.FindControl("AlertErrorLabel")).Text = ex.Message;
+                    (Master as Main).Show_Alert(ex.Message, "error");
                 }
 
             }
