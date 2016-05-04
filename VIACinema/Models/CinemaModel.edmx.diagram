@@ -5,14 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c6d5fd53553e4f4585fa94ffc572fb3d" Name="Diagram1" >
-        <EntityTypeShape EntityType="VIACinema.Movie" Width="1.5" PointX="0.75" PointY="1.375" />
-        <EntityTypeShape EntityType="VIACinema.Stage" Width="1.5" PointX="3.5" PointY="3.125" />
-        <EntityTypeShape EntityType="VIACinema.Seat" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="VIACinema.Movie" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="VIACinema.Stage" Width="1.5" PointX="0.75" PointY="5.25" />
+        <EntityTypeShape EntityType="VIACinema.Seat" Width="1.5" PointX="3.375" PointY="5.25" />
         <AssociationConnector Association="VIACinema.StageSeat" />
         <EntityTypeShape EntityType="VIACinema.MovieSession" Width="1.5" PointX="6.25" PointY="1.25" />
         <AssociationConnector Association="VIACinema.MovieSessionMovie" />
         <AssociationConnector Association="VIACinema.MovieSessionStage" />
-        <EntityTypeShape EntityType="VIACinema.User" Width="1.5" PointX="9" PointY="3.375" />
+        <EntityTypeShape EntityType="VIACinema.User" Width="1.5" PointX="8.75" PointY="4.625" />
+        <EntityTypeShape EntityType="VIACinema.CreditCard" Width="1.5" PointX="8.875" PointY="1.375" />
+        <AssociationConnector Association="VIACinema.UserCreditCard" />
+        <EntityTypeShape EntityType="VIACinema.Reservation" Width="1.5" PointX="5.875" PointY="4.75" />
+        <AssociationConnector Association="VIACinema.MovieSessionReservation" />
+        <AssociationConnector Association="VIACinema.UserReservation" />
+        <AssociationConnector Association="VIACinema.SeatReservation" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

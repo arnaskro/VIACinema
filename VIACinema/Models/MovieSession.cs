@@ -14,6 +14,12 @@ namespace VIACinema.Models
     
     public partial class MovieSession
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MovieSession()
+        {
+            this.Reservations = new HashSet<Reservation>();
+        }
+    
         public int Id { get; set; }
         public double Price { get; set; }
         public System.DateTime SessionDate { get; set; }
@@ -22,5 +28,7 @@ namespace VIACinema.Models
     
         public virtual Movie Movie { get; set; }
         public virtual Stage Stage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }
