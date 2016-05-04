@@ -18,6 +18,8 @@ namespace VIACinema.Models
         public User()
         {
             this.Admin = false;
+            this.CreditCards = new HashSet<CreditCard>();
+            this.Reservations = new HashSet<Reservation>();
         }
     
         public int Id { get; set; }
@@ -26,5 +28,10 @@ namespace VIACinema.Models
         public string Email { get; set; }
         public string Address { get; set; }
         public bool Admin { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CreditCard> CreditCards { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }

@@ -2,22 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
-<<<<<<< HEAD
--- Date Created: 05/04/2016 11:38:58
--- Generated from EDMX file: C:\Users\user\Documents\Visual Studio 2015\Projects\VIACinema\VIACinema\Models\CinemaModel.edmx
-=======
--- Date Created: 05/04/2016 10:47:07
+-- Date Created: 05/04/2016 12:05:47
 -- Generated from EDMX file: C:\Users\arnas\OneDrive\VisualStudio\VIACinema\VIACinema\VIACinema\Models\CinemaModel.edmx
->>>>>>> b642b2896e1542e19621f969c928c9d861174d00
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-<<<<<<< HEAD
-USE [C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\VIACINEMA\VIACINEMA\APP_DATA\DBCINEMA.MDF]
-=======
 USE [C:\USERS\ARNAS\ONEDRIVE\VISUALSTUDIO\VIACINEMA\VIACINEMA\VIACINEMA\APP_DATA\DBCINEMA.MDF];
->>>>>>> b642b2896e1542e19621f969c928c9d861174d00
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -26,14 +17,14 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_StageSeat]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Seats] DROP CONSTRAINT [FK_StageSeat];
+GO
 IF OBJECT_ID(N'[dbo].[FK_MovieSessionMovie]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[MovieSessions] DROP CONSTRAINT [FK_MovieSessionMovie];
 GO
 IF OBJECT_ID(N'[dbo].[FK_MovieSessionStage]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[MovieSessions] DROP CONSTRAINT [FK_MovieSessionStage];
-GO
-IF OBJECT_ID(N'[dbo].[FK_StageSeat]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Seats] DROP CONSTRAINT [FK_StageSeat];
 GO
 
 -- --------------------------------------------------
@@ -43,14 +34,14 @@ GO
 IF OBJECT_ID(N'[dbo].[Movies]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Movies];
 GO
-IF OBJECT_ID(N'[dbo].[MovieSessions]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[MovieSessions];
+IF OBJECT_ID(N'[dbo].[Stages]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Stages];
 GO
 IF OBJECT_ID(N'[dbo].[Seats]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Seats];
 GO
-IF OBJECT_ID(N'[dbo].[Stages]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Stages];
+IF OBJECT_ID(N'[dbo].[MovieSessions]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MovieSessions];
 GO
 IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Users];
@@ -106,6 +97,26 @@ CREATE TABLE [dbo].[Users] (
 );
 GO
 
+-- Creating table 'CreditCards'
+CREATE TABLE [dbo].[CreditCards] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Code] nvarchar(max)  NOT NULL,
+    [ExpirationDate] datetime  NOT NULL,
+    [CVC] uniqueidentifier  NOT NULL,
+    [UserId] int  NOT NULL
+);
+GO
+
+-- Creating table 'Reservations'
+CREATE TABLE [dbo].[Reservations] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [PricePayed] float  NOT NULL,
+    [MovieSessionId] int  NOT NULL,
+    [UserId] int  NOT NULL,
+    [SeatId] int  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -137,6 +148,18 @@ GO
 -- Creating primary key on [Id] in table 'Users'
 ALTER TABLE [dbo].[Users]
 ADD CONSTRAINT [PK_Users]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'CreditCards'
+ALTER TABLE [dbo].[CreditCards]
+ADD CONSTRAINT [PK_CreditCards]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Reservations'
+ALTER TABLE [dbo].[Reservations]
+ADD CONSTRAINT [PK_Reservations]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -187,6 +210,66 @@ GO
 CREATE INDEX [IX_FK_MovieSessionStage]
 ON [dbo].[MovieSessions]
     ([StageId]);
+GO
+
+-- Creating foreign key on [UserId] in table 'CreditCards'
+ALTER TABLE [dbo].[CreditCards]
+ADD CONSTRAINT [FK_UserCreditCard]
+    FOREIGN KEY ([UserId])
+    REFERENCES [dbo].[Users]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UserCreditCard'
+CREATE INDEX [IX_FK_UserCreditCard]
+ON [dbo].[CreditCards]
+    ([UserId]);
+GO
+
+-- Creating foreign key on [MovieSessionId] in table 'Reservations'
+ALTER TABLE [dbo].[Reservations]
+ADD CONSTRAINT [FK_MovieSessionReservation]
+    FOREIGN KEY ([MovieSessionId])
+    REFERENCES [dbo].[MovieSessions]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_MovieSessionReservation'
+CREATE INDEX [IX_FK_MovieSessionReservation]
+ON [dbo].[Reservations]
+    ([MovieSessionId]);
+GO
+
+-- Creating foreign key on [UserId] in table 'Reservations'
+ALTER TABLE [dbo].[Reservations]
+ADD CONSTRAINT [FK_UserReservation]
+    FOREIGN KEY ([UserId])
+    REFERENCES [dbo].[Users]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UserReservation'
+CREATE INDEX [IX_FK_UserReservation]
+ON [dbo].[Reservations]
+    ([UserId]);
+GO
+
+-- Creating foreign key on [SeatId] in table 'Reservations'
+ALTER TABLE [dbo].[Reservations]
+ADD CONSTRAINT [FK_SeatReservation]
+    FOREIGN KEY ([SeatId])
+    REFERENCES [dbo].[Seats]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_SeatReservation'
+CREATE INDEX [IX_FK_SeatReservation]
+ON [dbo].[Reservations]
+    ([SeatId]);
 GO
 
 -- --------------------------------------------------

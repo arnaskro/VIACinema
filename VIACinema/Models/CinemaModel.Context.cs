@@ -30,5 +30,7 @@ namespace VIACinema.Models
         public virtual DbSet<Seat> Seats { get; set; }
         public virtual DbSet<MovieSession> MovieSessions { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<CreditCard> CreditCards { get; set; }
+        public virtual DbSet<Reservation> Reservations { get; set; }
     }
 }
