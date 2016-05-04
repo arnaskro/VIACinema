@@ -31,13 +31,22 @@ namespace VIACinema.Administration {
         protected global::System.Web.UI.WebControls.TextBox InputDescription;
         
         /// <summary>
-        /// InputReleaseDate control.
+        /// InputReleaseYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox InputReleaseDate;
+        protected global::System.Web.UI.WebControls.TextBox InputReleaseYear;
+        
+        /// <summary>
+        /// InputImageURL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox InputImageURL;
         
         /// <summary>
         /// SubmitAddMovie control.

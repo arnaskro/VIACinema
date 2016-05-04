@@ -26,13 +26,12 @@ namespace VIACinema
                 }
                 else 
                 {
-                    GridMovies.DataSource = list;
-                    GridMovies.DataBind();
+                    ListViewMS.DataSource = list;
+                    ListViewMS.DataBind();
                 }
-
-               
-
+                
             }
         }
+        
     }
 }

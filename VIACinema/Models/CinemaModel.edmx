@@ -49,7 +49,8 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ReleaseDate" Type="datetime" StoreGeneratedPattern="Computed" Nullable="true" />
+    <Property Name="ReleaseYear" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ImageUrl" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Stages">
     <Key>
@@ -241,8 +242,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" />
-          <Property Name="ReleaseDate" Type="DateTime" Nullable="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ReleaseYear" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" />
           <NavigationProperty Name="MovieSessions" Relationship="VIACinema.MovieSessionMovie" FromRole="Movie" ToRole="MovieSession" />
+          <Property Name="ImageUrl" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Stage">
           <Key>
@@ -411,7 +413,8 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+          <ScalarProperty Name="ReleaseYear" ColumnName="ReleaseYear" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

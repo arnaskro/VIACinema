@@ -21,8 +21,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="InputReleaseDate">Release Date</label>
-                    <asp:TextBox ID="InputReleaseDate" runat="server" CssClass="form-control" type="date"></asp:TextBox>
+                    <label for="InputReleaseYear">Release Year</label>
+                    <asp:TextBox ID="InputReleaseYear" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+
+                <div class="form-group">
+                    <label for="InputImageURL">Image URL</label>
+                    <asp:TextBox ID="InputImageURL" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
 

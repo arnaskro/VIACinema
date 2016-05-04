@@ -48,7 +48,7 @@ namespace VIACinema.Administration
 
                     db.SaveChanges();
 
-                    (Master as Main).Show_Alert("Stage added successfully!", "success");
+                    (Master as Main).Show_Alert("Stage "+ InputTitle.Text + " added successfully!", "success");
                 }
                 catch (Exception ex)
                 {

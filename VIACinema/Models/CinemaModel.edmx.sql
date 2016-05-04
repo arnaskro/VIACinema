@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/04/2016 21:05:57
+-- Date Created: 05/05/2016 00:32:45
 -- Generated from EDMX file: C:\Users\arnas\OneDrive\VisualStudio\VIACinema\VIACinema\VIACinema\Models\CinemaModel.edmx
 -- --------------------------------------------------
 
@@ -74,7 +74,8 @@ CREATE TABLE [dbo].[Movies] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Title] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [ReleaseDate] datetime  NULL
+    [ReleaseYear] nvarchar(max)  NULL,
+    [ImageUrl] nvarchar(max)  NOT NULL
 );
 GO
 

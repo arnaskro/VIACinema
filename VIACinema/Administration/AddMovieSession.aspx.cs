@@ -105,6 +105,8 @@ namespace VIACinema.Administration
 
                     if (MovieId == 0) throw new Exception("Movie wasn't selected!");
                     else if (StageId == 0) throw new Exception("Stage wasn't selected!");
+                    else if (SessionAirDate == null) throw new Exception("Date wasn't selected!");
+                    else if (SessionAirDate == null) throw new Exception("Time wasn't selected!");
 
                     var movieSession = new MovieSession();
                     movieSession.Price = TicketPrice;
@@ -116,7 +118,7 @@ namespace VIACinema.Administration
                     db.MovieSessions.Add(movieSession);
                     db.SaveChanges();
 
-                    (Master as Main).Show_Alert("Movie Session added successfully!", "success");
+                    (Master as Main).Show_Alert("Movie Session for "+ SessionAirDate.ToString() +" added successfully!", "success");
                 }
                 catch (Exception ex)
                 {
