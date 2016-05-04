@@ -101,20 +101,22 @@ namespace VIACinema.Administration
                     var StageId = int.Parse(InputStage.SelectedValue);
                     var TicketPrice = double.Parse(InputPrice.Text);
                     var SessionAirDate = Convert.ToDateTime(InputSessionDate.Text);
+                    var SessionAirTime = (TimeSpan)InputSessionTime.Text.ToTimeSpan();
 
                     if (MovieId == 0) throw new Exception("Movie wasn't selected!");
                     else if (StageId == 0) throw new Exception("Stage wasn't selected!");
-                    
+
                     var movieSession = new MovieSession();
                     movieSession.Price = TicketPrice;
                     movieSession.SessionDate = SessionAirDate;
+                    movieSession.Time = SessionAirTime;
                     movieSession.MovieId = MovieId;
                     movieSession.StageId = StageId;
 
                     db.MovieSessions.Add(movieSession);
                     db.SaveChanges();
 
-                    (Master as Main).Show_Alert("Movie added successfully!", "success");
+                    (Master as Main).Show_Alert("Movie Session added successfully!", "success");
                 }
                 catch (Exception ex)
                 {

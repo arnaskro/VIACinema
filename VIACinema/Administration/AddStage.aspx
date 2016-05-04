@@ -9,16 +9,19 @@
             
             <h1>Add New Stage</h1>
             <br />
-            <div class="form-group">
-                <label for="InputTitle">Title</label>
-                <asp:TextBox ID="InputTitle" runat="server" CssClass="form-control"></asp:TextBox>
-            </div>
             
-            <div class="form-group">
-                <label for="InputMaxSeats">Number of Seats</label>
-                <asp:TextBox ID="InputMaxSeats" runat="server" CssClass="form-control" type="number"></asp:TextBox>
-            </div>
+            <div class="well">
+                <div class="form-group">
+                    <label for="InputTitle">Title</label>
+                    <asp:TextBox ID="InputTitle" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
             
+                <div class="form-group">
+                    <label for="InputMaxSeats">Number of Seats</label>
+                    <asp:TextBox ID="InputMaxSeats" runat="server" CssClass="form-control" type="number"></asp:TextBox>
+                </div>
+            </div>
+
             <br />
            <asp:Button ID="SubmitAddStage" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="SubmitAddStage_Click" />
 

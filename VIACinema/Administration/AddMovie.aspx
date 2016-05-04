@@ -8,21 +8,24 @@
             
             <h1>Add New Movie</h1>
             <br />
-            <div class="form-group">
-                <label for="InputTitle">Title</label>
-                <asp:TextBox ID="InputTitle" runat="server" CssClass="form-control"></asp:TextBox>
-            </div>
+
+            <div class="well">
+                <div class="form-group">
+                    <label for="InputTitle">Title</label>
+                    <asp:TextBox ID="InputTitle" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
             
-            <div class="form-group">
-                <label for="InputDescription">Description</label>
-                <asp:TextBox ID="InputDescription" runat="server" CssClass="form-control"></asp:TextBox>
+                <div class="form-group">
+                    <label for="InputDescription">Description</label>
+                    <asp:TextBox ID="InputDescription" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+
+                <div class="form-group">
+                    <label for="InputReleaseDate">Release Date</label>
+                    <asp:TextBox ID="InputReleaseDate" runat="server" CssClass="form-control" type="date"></asp:TextBox>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="InputReleaseDate">Release Date</label>
-                <asp:TextBox ID="InputReleaseDate" runat="server" CssClass="form-control" type="date"></asp:TextBox>
-            </div>
-            
             <br />
            <asp:Button ID="SubmitAddMovie" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="SubmitAddMovie_Click" />
 

@@ -76,6 +76,7 @@
     <Property Name="SessionDate" Type="datetime" Nullable="false" />
     <Property Name="MovieId" Type="int" Nullable="false" />
     <Property Name="StageId" Type="int" Nullable="false" />
+    <Property Name="Time" Type="time" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -287,6 +288,7 @@
           <NavigationProperty Name="Stage" Relationship="VIACinema.MovieSessionStage" FromRole="MovieSession" ToRole="Stage" />
           <Property Name="StageId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Reservations" Relationship="VIACinema.MovieSessionReservation" FromRole="MovieSession" ToRole="Reservation" />
+          <Property Name="Time" Type="Time" Nullable="false" annotation:StoreGeneratedPattern="None" />
         </EntityType>
         <Association Name="MovieSessionMovie">
           <End Type="VIACinema.MovieSession" Role="MovieSession" Multiplicity="*" />
@@ -439,6 +441,7 @@
           <ScalarProperty Name="SessionDate" ColumnName="SessionDate" />
           <ScalarProperty Name="MovieId" ColumnName="MovieId" />
           <ScalarProperty Name="StageId" ColumnName="StageId" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
