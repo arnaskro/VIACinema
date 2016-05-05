@@ -16,11 +16,9 @@ namespace VIACinema
         {
             var MovieID = Request.QueryString["id"];
 
-            if (MovieID == null)
-            {
+            if (MovieID == null) {
                 (Master as Main).Show_Alert("ID is null!", "error");
-            } else
-            {
+            } else {
                 try {
                     movie = (new CinemaContext()).Movies.Find(int.Parse(MovieID));
 
@@ -39,7 +37,8 @@ namespace VIACinema
             MovieImage.ImageUrl = movie.ImageUrl;
             MovieDescription.InnerText = movie.Description;
             MovieViews.InnerText = Helper.GetViews(movie).ToString();
-            
+            Title = movie.Title;
+
             try
             {
                 UpcomingMovieSessions.DataSource = Helper.GetAvailableMovieSessions(movie);

@@ -114,6 +114,10 @@
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\noimage.jpg" />
+    <Content Include="Content\images\seat-black.png" />
+    <Content Include="Content\images\seat-green.png" />
+    <Content Include="Content\images\seat-red.png" />
+    <Content Include="Content\images\seat-yellow.png" />
     <Content Include="Content\images\VIACINEMALOGO.png" />
     <Content Include="Login.aspx" />
     <Content Include="MoviePage.aspx">
@@ -172,6 +176,7 @@
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\jquery-2.2.3.min.js" />
     <Content Include="scripts\npm.js" />
+    <Content Include="SeatReservation.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -236,27 +241,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CinemaModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\CreditCard.cs">
-      <DependentUpon>CinemaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Movie.cs">
-      <DependentUpon>CinemaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MovieSession.cs">
-      <DependentUpon>CinemaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Reservation.cs">
-      <DependentUpon>CinemaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Seat.cs">
-      <DependentUpon>CinemaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Stage.cs">
-      <DependentUpon>CinemaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User.cs">
-      <DependentUpon>CinemaModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="MoviePage.aspx.cs">
       <DependentUpon>MoviePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -271,6 +255,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeatReservation.aspx.cs">
+      <DependentUpon>SeatReservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeatReservation.aspx.designer.cs">
+      <DependentUpon>SeatReservation.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
