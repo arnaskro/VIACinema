@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using VIACinema.Models;
 
 namespace VIACinema
 {
@@ -22,7 +23,7 @@ namespace VIACinema
             {
                 MovieID.Text = "Movie ID is: " + MovieSessionID;
             }
-
+            
         }
     }
 }

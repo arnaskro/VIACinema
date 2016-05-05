@@ -5,7 +5,7 @@
     
     <div class="row">
 
-        <div class="col-xs-12 col-md-6">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
             
             <h1>Add New Stage</h1>
             <br />
