@@ -101,7 +101,7 @@ namespace VIACinema.Administration
                     var StageId = int.Parse(InputStage.SelectedValue);
                     var TicketPrice = double.Parse(InputPrice.Text);
                     var SessionAirDate = Convert.ToDateTime(InputSessionDate.Text);
-                    var SessionAirTime = (TimeSpan)InputSessionTime.Text.ToTimeSpan();
+                    SessionAirDate = SessionAirDate.Add(InputSessionTime.Text.ToTimeSpan());
 
                     if (MovieId == 0) throw new Exception("Movie wasn't selected!");
                     else if (StageId == 0) throw new Exception("Stage wasn't selected!");
@@ -111,7 +111,6 @@ namespace VIACinema.Administration
                     var movieSession = new MovieSession();
                     movieSession.Price = TicketPrice;
                     movieSession.SessionDate = SessionAirDate;
-                    movieSession.Time = SessionAirTime;
                     movieSession.MovieId = MovieId;
                     movieSession.StageId = StageId;
 

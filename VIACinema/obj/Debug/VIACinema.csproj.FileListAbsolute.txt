@@ -71,4 +71,3 @@ C:\Users\arnas\OneDrive\VisualStudio\VIACinema\VIACinema\VIACinema\bin\Microsoft
 C:\Users\arnas\OneDrive\VisualStudio\VIACinema\VIACinema\VIACinema\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\arnas\OneDrive\VisualStudio\VIACinema\VIACinema\VIACinema\obj\Debug\VIACinema.dll
 C:\Users\arnas\OneDrive\VisualStudio\VIACinema\VIACinema\VIACinema\obj\Debug\VIACinema.pdb
-C:\Users\arnas\OneDrive\VisualStudio\VIACinema\VIACinema\VIACinema\obj\Debug\VIACinema.csprojResolveAssemblyReference.cache

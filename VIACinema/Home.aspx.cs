@@ -12,24 +12,16 @@ namespace VIACinema
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (CinemaContext db = new CinemaContext() )
+            var availableMovies = Helper.GetAvailableMovies();
+
+            if (availableMovies.Count == 0)
             {
-                var query = from q
-                            in db.MovieSessions
-                            select q;
-
-                var list = query.ToList();
-
-                if (list.Count == 0)
-                {
-                    (Master as Main).Show_Alert("There are no movie sessions!", "info");
-                }
-                else 
-                {
-                    ListViewMS.DataSource = list;
-                    ListViewMS.DataBind();
-                }
-                
+                (Master as Main).Show_Alert("There are no available movies!", "info");
+            }
+            else 
+            {
+                ListViewMS.DataSource = availableMovies;
+                ListViewMS.DataBind();
             }
         }
         

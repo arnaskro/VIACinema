@@ -8,20 +8,20 @@ using VIACinema.Models;
 
 namespace VIACinema
 {
-    public partial class MovieSessionPage : System.Web.UI.Page
+    public partial class MoviePage : System.Web.UI.Page
     {
-        private string MovieSessionID = null;
+        private string MovieID = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            MovieSessionID = Request.QueryString["id"];
+            MovieID = Request.QueryString["id"];
 
-            if (MovieSessionID == null)
+            if (MovieID == null)
             {
-                MovieID.Text = "No Movie Session found!";
+                MovieIDLabel.Text = "No Movie found!";
             } else
             {
-                MovieID.Text = "Movie ID is: " + MovieSessionID;
+                MovieIDLabel.Text = "Movie ID is: " + MovieID;
             }
             
         }
