@@ -38,6 +38,21 @@ namespace VIACinema
             MovieYear.InnerText = movie.ReleaseYear;
             MovieImage.ImageUrl = movie.ImageUrl;
             MovieDescription.InnerText = movie.Description;
+            MovieViews.InnerText = Helper.GetViews(movie).ToString();
+            
+            try
+            {
+                UpcomingMovieSessions.DataSource = Helper.GetAvailableMovieSessions(movie);
+                UpcomingMovieSessions.DataBind();
+            } catch(Exception ex)
+            {
+                (Master as Main).Show_Alert("Error while getting Movie Sessions!", "error");
+            }
+        }
+        
+        protected string GetNumberOfSeats(object MovieSessionID)
+        {
+            return Helper.GetNumberOfAvailableSeats(int.Parse(MovieSessionID.ToString())).ToString();
         }
     }
 }

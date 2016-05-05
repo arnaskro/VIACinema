@@ -43,6 +43,7 @@ button, input, select, textarea {
 .MovieImage {
     width: 100%;
     height: auto;
+    display: block;
     background-image: url(../images/noimage.jpg);
     background-size: cover;
     background-position: center;
@@ -55,10 +56,14 @@ button, input, select, textarea {
     text-align: center;
     font-size: 13px;
     width: 100%;
-    margin-top: -5px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+}
+
+h1 .glyphicon, h2 .glyphicon {
+    font-size: 0.75em;
+    margin-right: 5px;
 }
 
 /* Mobile */
