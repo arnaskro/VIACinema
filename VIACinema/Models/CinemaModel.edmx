@@ -49,7 +49,8 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ReleaseDate" Type="datetime" StoreGeneratedPattern="Computed" Nullable="true" />
+    <Property Name="ReleaseYear" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ImageUrl" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Stages">
     <Key>
@@ -76,6 +77,7 @@
     <Property Name="SessionDate" Type="datetime" Nullable="false" />
     <Property Name="MovieId" Type="int" Nullable="false" />
     <Property Name="StageId" Type="int" Nullable="false" />
+    <Property Name="Time" Type="time" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -240,8 +242,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" />
-          <Property Name="ReleaseDate" Type="DateTime" Nullable="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ReleaseYear" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" />
           <NavigationProperty Name="MovieSessions" Relationship="VIACinema.MovieSessionMovie" FromRole="Movie" ToRole="MovieSession" />
+          <Property Name="ImageUrl" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Stage">
           <Key>
@@ -287,6 +290,7 @@
           <NavigationProperty Name="Stage" Relationship="VIACinema.MovieSessionStage" FromRole="MovieSession" ToRole="Stage" />
           <Property Name="StageId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Reservations" Relationship="VIACinema.MovieSessionReservation" FromRole="MovieSession" ToRole="Reservation" />
+          <Property Name="Time" Type="Time" Nullable="false" annotation:StoreGeneratedPattern="None" />
         </EntityType>
         <Association Name="MovieSessionMovie">
           <End Type="VIACinema.MovieSession" Role="MovieSession" Multiplicity="*" />
@@ -409,7 +413,8 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+          <ScalarProperty Name="ReleaseYear" ColumnName="ReleaseYear" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -439,6 +444,7 @@
           <ScalarProperty Name="SessionDate" ColumnName="SessionDate" />
           <ScalarProperty Name="MovieId" ColumnName="MovieId" />
           <ScalarProperty Name="StageId" ColumnName="StageId" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

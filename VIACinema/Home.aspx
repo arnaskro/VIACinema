@@ -6,5 +6,19 @@
     <br />
     <asp:GridView ID="GridMovies" runat="server" CssClass="table table-hover table-responsive table-bordered">
     </asp:GridView>
-&nbsp;
+   
+    <br />
+
+    <asp:Repeater id="ListViewMS" runat="server">
+        <ItemTemplate>
+            <asp:Panel runat="server" CssClass="MovieSessionItemContainer col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                <asp:Panel runat="server" CssClass="MovieSessionItem">
+                    <asp:ImageButton runat="server" ImageUrl='<%# Eval("Movie.ImageUrl") %>' CssClass="MovieSessionImage" PostBackUrl='<%# "~/MovieSessionPage.aspx?Id=" + Eval("Id") %>' />
+                    <asp:Panel runat="server" CssClass="MovieSessionDate"><%# Eval("SessionDate") %></asp:Panel>
+                    <asp:Panel runat="server" CssClass="MovieSessionInfo"><strong><%# Eval("Movie.Title") %></strong> (<%# Eval("Movie.ReleaseYear") %>)</asp:Panel>
+                </asp:Panel>
+            </asp:Panel>
+        </ItemTemplate>
+    </asp:Repeater>
+
 </asp:Content>

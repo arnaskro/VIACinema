@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/04/2016 12:11:28
+-- Date Created: 05/05/2016 00:32:45
 -- Generated from EDMX file: C:\Users\arnas\OneDrive\VisualStudio\VIACinema\VIACinema\VIACinema\Models\CinemaModel.edmx
 -- --------------------------------------------------
 
@@ -26,6 +26,18 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_MovieSessionStage]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[MovieSessions] DROP CONSTRAINT [FK_MovieSessionStage];
 GO
+IF OBJECT_ID(N'[dbo].[FK_UserCreditCard]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CreditCards] DROP CONSTRAINT [FK_UserCreditCard];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MovieSessionReservation]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Reservations] DROP CONSTRAINT [FK_MovieSessionReservation];
+GO
+IF OBJECT_ID(N'[dbo].[FK_UserReservation]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Reservations] DROP CONSTRAINT [FK_UserReservation];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SeatReservation]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Reservations] DROP CONSTRAINT [FK_SeatReservation];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -46,6 +58,12 @@ GO
 IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Users];
 GO
+IF OBJECT_ID(N'[dbo].[CreditCards]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CreditCards];
+GO
+IF OBJECT_ID(N'[dbo].[Reservations]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Reservations];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -56,7 +74,8 @@ CREATE TABLE [dbo].[Movies] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Title] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [ReleaseDate] datetime  NULL
+    [ReleaseYear] nvarchar(max)  NULL,
+    [ImageUrl] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -82,7 +101,8 @@ CREATE TABLE [dbo].[MovieSessions] (
     [Price] float  NOT NULL,
     [SessionDate] datetime  NOT NULL,
     [MovieId] int  NOT NULL,
-    [StageId] int  NOT NULL
+    [StageId] int  NOT NULL,
+    [Time] time  NOT NULL
 );
 GO
 

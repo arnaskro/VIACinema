@@ -49,6 +49,15 @@ namespace VIACinema.Administration {
         protected global::System.Web.UI.WebControls.TextBox InputSessionDate;
         
         /// <summary>
+        /// InputSessionTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox InputSessionTime;
+        
+        /// <summary>
         /// SubmitAddMovieSession control.
         /// </summary>
         /// <remarks>

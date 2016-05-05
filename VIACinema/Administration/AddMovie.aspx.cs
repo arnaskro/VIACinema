@@ -24,19 +24,21 @@ namespace VIACinema.Administration
             {
                 var title = InputTitle.Text;
                 var description = InputDescription.Text;
-                var releaseDate = InputReleaseDate.Text;
+                var releaseYear = InputReleaseYear.Text;
+                var imageUrl = InputImageURL.Text;
 
                 var movie = new Movie();
                 movie.Description = description;
                 movie.Title = title;
-                movie.ReleaseDate = Convert.ToDateTime(releaseDate);
+                movie.ImageUrl = imageUrl;
+                movie.ReleaseYear = releaseYear;
 
                 try
                 {
                     db.Movies.Add(movie);
                     db.SaveChanges();
 
-                    (Master as Main).Show_Alert("Movie added successfully!", "success");
+                    (Master as Main).Show_Alert("Movie "+ InputTitle.Text + " added successfully!", "success");
                 } catch (Exception ex)
                 {
                     (Master as Main).Show_Alert(ex.Message, "error");

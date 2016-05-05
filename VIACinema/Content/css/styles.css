@@ -14,3 +14,86 @@ button, input, select, textarea {
     height: auto;
     width: auto;
 }
+
+.navbar {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.MovieSessionItemContainer {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.MovieSessionItem {
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    opacity: 0.9;
+    transition: all 250ms ease;
+    border-radius: 2px;
+}
+
+.MovieSessionItem:hover {
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
+    opacity: 1;
+}
+
+.MovieSessionImage {
+    width: 100%;
+    height: auto;
+    background-image: url(../images/noimage.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.MovieSessionInfo {
+    background-color: #789661;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    font-size: 13px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.MovieSessionDate {
+    margin-top: -5px;
+    text-align: center;
+    font-size: 12px;
+    padding: 5px 5px 3px 5px;
+    background-color: #F3F3F3;
+    font-weight: bold;
+}
+
+/* Mobile */
+@media (max-width: 425px) { 
+    .MovieSessionItemContainer {
+        min-width: 100%;
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .MovieSessionImage {
+        height: 312px;
+        width: auto;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .MovieSessionImage {
+        height: 305px;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .MovieSessionImage {
+        height: 240px;
+    }
+}
