@@ -10,20 +10,34 @@ namespace VIACinema
 {
     public partial class MoviePage : System.Web.UI.Page
     {
-        private string MovieID = null;
+        private Movie movie = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            MovieID = Request.QueryString["id"];
+            var MovieID = Request.QueryString["id"];
 
             if (MovieID == null)
             {
-                MovieIDLabel.Text = "No Movie found!";
+                (Master as Main).Show_Alert("ID is null!", "error");
             } else
             {
-                MovieIDLabel.Text = "Movie ID is: " + MovieID;
+                try {
+                    movie = (new CinemaContext()).Movies.Find(int.Parse(MovieID));
+
+                    if (movie != null)  InitializeMoviePage();
+
+                } catch (Exception ex) {
+                    (Master as Main).Show_Alert("No Movie found!\n\n" + ex.Message, "error");
+                }
             }
-            
+        }
+
+        private void InitializeMoviePage()
+        {
+            MovieTitle.InnerText = movie.Title;
+            MovieYear.InnerText = movie.ReleaseYear;
+            MovieImage.ImageUrl = movie.ImageUrl;
+            MovieDescription.InnerText = movie.Description;
         }
     }
 }

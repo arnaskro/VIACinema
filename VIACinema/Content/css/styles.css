@@ -74,12 +74,19 @@ button, input, select, textarea {
         height: 312px;
         width: auto;
     }
+
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
     .MovieImage {
         height: 305px;
+    }
+    
+    .MoviePageImage {
+        min-width: 310px;
+        max-width: 310px;
+        float: right;
     }
 }
 

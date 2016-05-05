@@ -13,12 +13,57 @@ namespace VIACinema {
     public partial class MoviePage {
         
         /// <summary>
-        /// MovieIDLabel control.
+        /// MovieHeading control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MovieIDLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MovieHeading;
+        
+        /// <summary>
+        /// MovieTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MovieTitle;
+        
+        /// <summary>
+        /// MovieYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MovieYear;
+        
+        /// <summary>
+        /// MovieImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image MovieImage;
+        
+        /// <summary>
+        /// MovieDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MovieDescription;
+        
+        /// <summary>
+        /// NumberOfPeople control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NumberOfPeople;
     }
 }
