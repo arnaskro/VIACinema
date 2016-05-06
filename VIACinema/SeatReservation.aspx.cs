@@ -10,15 +10,15 @@ namespace VIACinema
 {
     public partial class SeatReservation : System.Web.UI.Page
     {
-        MovieSession movieSession;
-        List<Seat> SeatList;
+        private MovieSession movieSession;
+        private List<int> SelectedSeatIndexes;
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (ViewState["SelectedSeats"] != null)
-                SeatList = (List<Seat>)ViewState["SelectedSeats"];
+            if (ViewState["SelectedSeatIndexes"] != null)
+                SelectedSeatIndexes = (List<int>)ViewState["SelectedSeatIndexes"];
             else
-                SeatList = new List<Seat>();
+                SelectedSeatIndexes = new List<int>();
 
             if (!Page.IsPostBack)
             {
@@ -45,34 +45,65 @@ namespace VIACinema
             } else
             {
                 movieSession = (new CinemaContext()).MovieSessions.Find(int.Parse(Request.QueryString["id"]));
-                ViewState["SelectedSeats"] = SeatList;
+                ViewState["SelectedSeatIndexes"] = SelectedSeatIndexes;
             }
 
         }
 
         private void InitializeSeatReservationPage()
         {
-            Seats.DataSource = movieSession.Stage.Seats;
+            // Get Reserved Seats
+            var ReservedSeatIndexes = new List<int>();
+            foreach (var reservation in movieSession.Reservations)
+                ReservedSeatIndexes.Add(reservation.Seat.Number);
+
+            // Create a list for displaying reserved and not reserved seats
+            var SeatsToDisplay = new List<string>();
+
+            // Loop through all seats and check if it's in the reserved seat list
+            for (int i = 0; i < movieSession.Stage.Seats.Count; i++)
+                if (ReservedSeatIndexes.Contains(i))
+                    SeatsToDisplay.Add("~/Content/images/seat-red.png");
+                else
+                    SeatsToDisplay.Add("~/Content/images/seat-black.png");
+            
+            Seats.DataSource = SeatsToDisplay;
             Seats.DataBind();
         }
 
         protected void Seats_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
 
-            (Master as Main).Show_Alert(SeatList.Count+"", "info");
-
-            Seat seat = movieSession.Stage.Seats.ToList()[e.Item.ItemIndex];
-
-            if (!SeatList.Contains(seat))
+            // Check if seat is not reserved
+            if (!((ImageButton)e.CommandSource).ImageUrl.Equals("~/Content/images/seat-red.png"))
             {
-                SeatList.Add(seat);
-                ((ImageButton)e.CommandSource).ImageUrl = "~/Content/images/seat-green.png";
+                // Check if seat wasn't already selected
+                if (!SelectedSeatIndexes.Contains(e.Item.ItemIndex))
+                {
+                    // Add it to the selected list
+                    SelectedSeatIndexes.Add(e.Item.ItemIndex);
+                    ((ImageButton)e.CommandSource).ImageUrl = "~/Content/images/seat-green.png";
+                }
+                else
+                {
+                    // Remove it from the selected list
+                    SelectedSeatIndexes.Remove(e.Item.ItemIndex);
+                    ((ImageButton)e.CommandSource).ImageUrl = "~/Content/images/seat-black.png";
+                }
+
+                // Show some info
+                (Master as Main).Show_Alert("Number of seats selected: <strong>" + SelectedSeatIndexes.Count+ "</strong> ----- Price to pay: <strong>" + (SelectedSeatIndexes.Count * movieSession.Price ) + " DKK</strong>", "info");
             }
-            else
-            {
-                SeatList.Remove(seat);
-                ((ImageButton)e.CommandSource).ImageUrl = "~/Content/images/seat-black.png";
-            }
+        }
+
+        protected void BtnSubmit_Click(object sender, EventArgs e)
+        {
+            // Store info to Session Variables
+            Session["SelectedMovieSessionID"] = movieSession.Id;
+            Session["SelectedSeatIndexes"] = SelectedSeatIndexes;
+
+            // Redirect to payment page
+            Response.Redirect("Payment.aspx");
         }
     }
 }

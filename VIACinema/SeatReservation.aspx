@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="SeatReservation.aspx.cs" Inherits="VIACinema.SeatReservation" EnableEventValidation="true" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="SeatReservation.aspx.cs" Inherits="VIACinema.SeatReservation" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -11,7 +11,7 @@
             <ul class="seatlist well">
         </HeaderTemplate>
         <ItemTemplate>
-            <li><asp:ImageButton ID="ImageButton1" runat="server" class="seat" ImageUrl="~/Content/images/seat-black.png"/></li>
+            <li><asp:ImageButton ID="SeatButton" runat="server" class="seat" ImageUrl='<%# Container.DataItem %>'/></li>
         </ItemTemplate>
         <FooterTemplate>
             </ul>
@@ -21,8 +21,8 @@
     <hr />
 
     <div class="text-center">
-        <p class="lead">Continue only when you have chosen your seats!</p>
-        <asp:Button ID="BtnSubmit" runat="server" Text="Continue" CssClass="btn btn-success btn-lg"/>
+        <p class="lead">Continue only when you have finished choosing your seats!</p>
+        <asp:Button ID="BtnSubmit" runat="server" Text="Continue" CssClass="btn btn-success btn-lg" OnClick="BtnSubmit_Click"/>
     </div>
 
 </asp:Content>

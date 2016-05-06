@@ -37,7 +37,7 @@ namespace VIACinema
             MovieImage.ImageUrl = movie.ImageUrl;
             MovieDescription.InnerText = movie.Description;
             MovieViews.InnerText = Helper.GetViews(movie).ToString();
-            Title = movie.Title;
+            Title = movie.Title + " ("+ movie.ReleaseYear +")";
 
             try
             {

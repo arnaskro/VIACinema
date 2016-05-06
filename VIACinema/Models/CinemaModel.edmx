@@ -77,7 +77,6 @@
     <Property Name="SessionDate" Type="datetime" Nullable="false" />
     <Property Name="MovieId" Type="int" Nullable="false" />
     <Property Name="StageId" Type="int" Nullable="false" />
-    <Property Name="Time" Type="time" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -201,7 +200,7 @@
         <EntityContainer Name="CinemaContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Movies" EntityType="VIACinema.Movie" />
           <EntitySet Name="Stages" EntityType="VIACinema.Stage" />
-          <EntitySet Name="Seats" EntityType="VIACinema.Seat" />
+          <EntitySet Name="Seats" EntityType="VIACinema.Seat" cg:GetterAccess="Internal" />
           <AssociationSet Name="StageSeat" Association="VIACinema.StageSeat">
             <End Role="Stage" EntitySet="Stages" />
             <End Role="Seat" EntitySet="Seats" />
@@ -240,11 +239,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" />
-          <Property Name="ReleaseYear" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ReleaseYear" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="MovieSessions" Relationship="VIACinema.MovieSessionMovie" FromRole="Movie" ToRole="MovieSession" />
-          <Property Name="ImageUrl" Type="String" Nullable="false" />
+          <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
         </EntityType>
         <EntityType Name="Stage">
           <Key>
@@ -256,7 +255,7 @@
           <NavigationProperty Name="Seats" Relationship="VIACinema.StageSeat" FromRole="Stage" ToRole="Seat" />
           <NavigationProperty Name="MovieSessions" Relationship="VIACinema.MovieSessionStage" FromRole="Stage" ToRole="MovieSession" />
         </EntityType>
-        <EntityType Name="Seat">
+        <EntityType Name="Seat" cg:TypeAccess="Public">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -290,7 +289,6 @@
           <NavigationProperty Name="Stage" Relationship="VIACinema.MovieSessionStage" FromRole="MovieSession" ToRole="Stage" />
           <Property Name="StageId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Reservations" Relationship="VIACinema.MovieSessionReservation" FromRole="MovieSession" ToRole="Reservation" />
-          <Property Name="Time" Type="Time" Nullable="false" annotation:StoreGeneratedPattern="None" />
         </EntityType>
         <Association Name="MovieSessionMovie">
           <End Type="VIACinema.MovieSession" Role="MovieSession" Multiplicity="*" />
@@ -334,8 +332,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Code" Type="String" Nullable="false" />
-          <Property Name="ExpirationDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ExpirationDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
           <Property Name="CVC" Type="Guid" Nullable="false" />
           <NavigationProperty Name="User" Relationship="VIACinema.UserCreditCard" FromRole="CreditCard" ToRole="User" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
@@ -444,7 +442,6 @@
           <ScalarProperty Name="SessionDate" ColumnName="SessionDate" />
           <ScalarProperty Name="MovieId" ColumnName="MovieId" />
           <ScalarProperty Name="StageId" ColumnName="StageId" />
-          <ScalarProperty Name="Time" ColumnName="Time" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

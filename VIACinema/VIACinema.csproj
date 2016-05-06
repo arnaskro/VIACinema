@@ -241,6 +241,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CinemaModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\CreditCard.cs">
+      <DependentUpon>CinemaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Movie.cs">
+      <DependentUpon>CinemaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MovieSession.cs">
+      <DependentUpon>CinemaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Reservation.cs">
+      <DependentUpon>CinemaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Seat.cs">
+      <DependentUpon>CinemaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Stage.cs">
+      <DependentUpon>CinemaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>CinemaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="MoviePage.aspx.cs">
       <DependentUpon>MoviePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
