@@ -98,12 +98,19 @@ namespace VIACinema
 
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
-            // Store info to Session Variables
-            Session["SelectedMovieSessionID"] = movieSession.Id;
-            Session["SelectedSeatIndexes"] = SelectedSeatIndexes;
+            if (SelectedSeatIndexes.Count > 0)
+            {
+                // Store info to Session Variables
+                Session["SelectedMovieSessionID"] = movieSession.Id;
+                Session["SelectedSeatIndexes"] = SelectedSeatIndexes;
 
-            // Redirect to payment page
-            Response.Redirect("Payment.aspx");
+                // Redirect to payment page
+                Response.Redirect("Payment.aspx");
+            } else
+            {
+                (Master as Main).Show_Alert("You haven't selected any seats!", "error");
+            }
+
         }
     }
 }
