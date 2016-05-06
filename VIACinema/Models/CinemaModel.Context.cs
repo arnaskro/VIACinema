@@ -18,6 +18,7 @@ namespace VIACinema.Models
         public CinemaContext()
             : base("name=CinemaContext")
         {
+            Seats = Set<Seat>();
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -27,7 +28,7 @@ namespace VIACinema.Models
     
         public virtual DbSet<Movie> Movies { get; set; }
         public virtual DbSet<Stage> Stages { get; set; }
-        public virtual DbSet<Seat> Seats { get; set; }
+        internal virtual DbSet<Seat> Seats { get; set; }
         public virtual DbSet<MovieSession> MovieSessions { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<CreditCard> CreditCards { get; set; }

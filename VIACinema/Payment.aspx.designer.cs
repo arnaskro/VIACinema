@@ -10,123 +10,150 @@
 namespace VIACinema {
     
     
-    public partial class Register {
+    public partial class Payment {
         
         /// <summary>
-        /// Label9 control.
+        /// InfoMovie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label9;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl InfoMovie;
         
         /// <summary>
-        /// name control.
+        /// InfoStage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox name;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl InfoStage;
         
         /// <summary>
-        /// Label2 control.
+        /// InfoDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl InfoDate;
         
         /// <summary>
-        /// address control.
+        /// InfoPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox address;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl InfoPrice;
         
         /// <summary>
-        /// Label5 control.
+        /// InfoSeats control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl InfoSeats;
         
         /// <summary>
-        /// email control.
+        /// InfoTotalPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox email;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl InfoTotalPrice;
         
         /// <summary>
-        /// Label6 control.
+        /// CreditCardSelect control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.Panel CreditCardSelect;
         
         /// <summary>
-        /// password control.
+        /// CreditCardListLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password;
+        protected global::System.Web.UI.WebControls.Label CreditCardListLabel;
         
         /// <summary>
-        /// Label3 control.
+        /// CreditCardList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.DropDownList CreditCardList;
         
         /// <summary>
-        /// creditCardNumber control.
+        /// CreditCardInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox creditCardNumber;
+        protected global::System.Web.UI.WebControls.Panel CreditCardInfo;
         
         /// <summary>
-        /// Label4 control.
+        /// CCnumberLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label CCnumberLabel;
         
         /// <summary>
-        /// expirationDates control.
+        /// CCnumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox expirationDates;
+        protected global::System.Web.UI.WebControls.TextBox CCnumber;
         
         /// <summary>
-        /// Button2 control.
+        /// CCexpDateLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Label CCexpDateLabel;
+        
+        /// <summary>
+        /// CCexpDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox CCexpDate;
+        
+        /// <summary>
+        /// CCcodeLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label CCcodeLabel;
+        
+        /// <summary>
+        /// CCcode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox CCcode;
     }
 }

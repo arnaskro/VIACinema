@@ -25,7 +25,6 @@ namespace VIACinema.Models
         public System.DateTime SessionDate { get; set; }
         public int MovieId { get; set; }
         public int StageId { get; set; }
-        public System.TimeSpan Time { get; set; }
     
         public virtual Movie Movie { get; set; }
         public virtual Stage Stage { get; set; }

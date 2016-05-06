@@ -49,6 +49,24 @@ namespace VIACinema {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl loggedIn;
         
         /// <summary>
+        /// UserLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor UserLink;
+        
+        /// <summary>
+        /// UserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UserName;
+        
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/05/2016 00:32:45
+-- Date Created: 05/06/2016 11:11:42
 -- Generated from EDMX file: C:\Users\arnas\OneDrive\VisualStudio\VIACinema\VIACinema\VIACinema\Models\CinemaModel.edmx
 -- --------------------------------------------------
 
@@ -101,8 +101,7 @@ CREATE TABLE [dbo].[MovieSessions] (
     [Price] float  NOT NULL,
     [SessionDate] datetime  NOT NULL,
     [MovieId] int  NOT NULL,
-    [StageId] int  NOT NULL,
-    [Time] time  NOT NULL
+    [StageId] int  NOT NULL
 );
 GO
 

@@ -43,6 +43,7 @@ button, input, select, textarea {
 .MovieImage {
     width: 100%;
     height: auto;
+    display: block;
     background-image: url(../images/noimage.jpg);
     background-size: cover;
     background-position: center;
@@ -55,10 +56,40 @@ button, input, select, textarea {
     text-align: center;
     font-size: 13px;
     width: 100%;
-    margin-top: -5px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+}
+
+h1 .glyphicon, h2 .glyphicon {
+    font-size: 0.75em;
+    margin-right: 5px;
+}
+
+.seatlist {
+    list-style-type: none;
+}
+
+.seatlist li{
+    display: inline-block;
+}
+
+.seat {
+    height: 70px;
+    width: 70px;
+    padding: 5px;
+    opacity: 0.6;
+    border-radius: 50px;
+    transition: all 200ms linear;
+}
+
+.seat:hover {
+    opacity: 1;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+}
+
+footer {
+    margin-top: 30px;
 }
 
 /* Mobile */
@@ -74,12 +105,19 @@ button, input, select, textarea {
         height: 312px;
         width: auto;
     }
+
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
     .MovieImage {
         height: 305px;
+    }
+    
+    .MoviePageImage {
+        min-width: 310px;
+        max-width: 310px;
+        float: right;
     }
 }
 

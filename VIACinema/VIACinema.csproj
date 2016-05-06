@@ -114,6 +114,10 @@
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\noimage.jpg" />
+    <Content Include="Content\images\seat-black.png" />
+    <Content Include="Content\images\seat-green.png" />
+    <Content Include="Content\images\seat-red.png" />
+    <Content Include="Content\images\seat-yellow.png" />
     <Content Include="Content\images\VIACINEMALOGO.png" />
     <Content Include="Login.aspx" />
     <Content Include="MoviePage.aspx">
@@ -165,6 +169,7 @@
       <LastGenOutput>CinemaModel.cs</LastGenOutput>
       <DependentUpon>CinemaModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Payment.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
@@ -172,6 +177,7 @@
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\jquery-2.2.3.min.js" />
     <Content Include="scripts\npm.js" />
+    <Content Include="SeatReservation.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +270,13 @@
     <Compile Include="MoviePage.aspx.designer.cs">
       <DependentUpon>MoviePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -271,6 +284,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeatReservation.aspx.cs">
+      <DependentUpon>SeatReservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeatReservation.aspx.designer.cs">
+      <DependentUpon>SeatReservation.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

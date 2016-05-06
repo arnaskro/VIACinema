@@ -22,19 +22,24 @@ namespace VIACinema
         {
             using ( var db = new CinemaContext() )
             {
-                User u = new Models.User();
-                u.Name = name.Text;
-                u.Address = address.Text;
-                u.Email = email.Text;
-                u.Password = password.Text;
-                db.Users.Add(u);
-                db.SaveChanges();
+                try
+                {
+                    User u = new Models.User();
+                    u.Name = name.Text;
+                    u.Address = address.Text;
+                    u.Email = email.Text;
+                    u.Password = password.Text;
+                    db.Users.Add(u);
+                    db.SaveChanges();
+
+                    Server.Transfer("/Login.aspx", true);
+                } catch (Exception ex)
+                {
+                    (Master as Main).Show_Alert("Incorrect email or password!", "error");
+                }
+
             }
         }
-
-        protected void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

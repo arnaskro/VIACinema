@@ -10,20 +10,48 @@ namespace VIACinema
 {
     public partial class MoviePage : System.Web.UI.Page
     {
-        private string MovieID = null;
+        private Movie movie = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            MovieID = Request.QueryString["id"];
+            var MovieID = Request.QueryString["id"];
 
-            if (MovieID == null)
-            {
-                MovieIDLabel.Text = "No Movie found!";
-            } else
-            {
-                MovieIDLabel.Text = "Movie ID is: " + MovieID;
+            if (MovieID == null) {
+                (Master as Main).Show_Alert("ID is null!", "error");
+            } else {
+                try {
+                    movie = (new CinemaContext()).Movies.Find(int.Parse(MovieID));
+
+                    if (movie != null)  InitializeMoviePage();
+
+                } catch (Exception ex) {
+                    (Master as Main).Show_Alert("No Movie found!\n\n" + ex.Message, "error");
+                }
             }
-            
+        }
+
+        private void InitializeMoviePage()
+        {
+            MovieTitle.InnerText = movie.Title;
+            MovieYear.InnerText = movie.ReleaseYear;
+            MovieImage.ImageUrl = movie.ImageUrl;
+            MovieDescription.InnerText = movie.Description;
+            MovieViews.InnerText = Helper.GetViews(movie).ToString();
+            Title = movie.Title + " ("+ movie.ReleaseYear +")";
+
+            try
+            {
+                UpcomingMovieSessions.DataSource = Helper.GetAvailableMovieSessions(movie);
+                UpcomingMovieSessions.DataBind();
+            } catch(Exception ex)
+            {
+                (Master as Main).Show_Alert("Error while getting Movie Sessions!", "error");
+            }
+        }
+        
+        protected string GetNumberOfSeats(object MovieSessionID)
+        {
+            return Helper.GetNumberOfAvailableSeats(int.Parse(MovieSessionID.ToString())).ToString();
         }
     }
 }

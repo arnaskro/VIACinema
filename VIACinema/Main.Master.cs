@@ -4,17 +4,25 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using VIACinema.Models;
 
 namespace VIACinema
 {
     public partial class Main : System.Web.UI.MasterPage
     {
+        private User user;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["user"] != null)
             {
                 LoggedOut.Visible = false;
                 loggedIn.Visible = true;
+
+                user = (User) Session["user"];
+
+                UserLink.HRef = "~/UserPage.aspx?Id=" + user.Id;
+                UserName.InnerText = user.Name;
             }
         }
 
