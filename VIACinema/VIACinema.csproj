@@ -120,6 +120,7 @@
     <Content Include="Content\images\seat-yellow.png" />
     <Content Include="Content\images\VIACINEMALOGO.png" />
     <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="MoviePage.aspx">
       <BrowseToURL>~/MoviePage.aspx</BrowseToURL>
     </Content>
@@ -178,6 +179,7 @@
     <Content Include="scripts\jquery-2.2.3.min.js" />
     <Content Include="scripts\npm.js" />
     <Content Include="SeatReservation.aspx" />
+    <Content Include="Userpage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -219,6 +221,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
@@ -291,6 +300,13 @@
     </Compile>
     <Compile Include="SeatReservation.aspx.designer.cs">
       <DependentUpon>SeatReservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Userpage.aspx.cs">
+      <DependentUpon>Userpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Userpage.aspx.designer.cs">
+      <DependentUpon>Userpage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

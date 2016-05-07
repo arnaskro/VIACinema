@@ -20,26 +20,29 @@ namespace VIACinema
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            using ( var db = new CinemaContext() )
+            using (var db = new CinemaContext())
             {
                 try
                 {
                     User u = new Models.User();
+                    CreditCard cc = new Models.CreditCard();
                     u.Name = name.Text;
                     u.Address = address.Text;
                     u.Email = email.Text;
                     u.Password = password.Text;
+
                     db.Users.Add(u);
                     db.SaveChanges();
 
                     Server.Transfer("/Login.aspx", true);
-                } catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     (Master as Main).Show_Alert("Incorrect email or password!", "error");
                 }
 
             }
         }
-        
+
     }
 }

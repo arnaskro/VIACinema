@@ -16,7 +16,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <asp:Label ID="Label2" runat="server" Text="Adress:"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text="Address:"></asp:Label>
                         <asp:TextBox ID="address" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
 
@@ -28,16 +28,6 @@
                     <div class="form-group">
                         <asp:Label ID="Label6" runat="server" Text="Password:"></asp:Label>
                         <asp:TextBox ID="password" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
-                    </div>
-
-                    <div class="form-group">
-                        <asp:Label ID="Label3" runat="server" Text="Credit card number:"></asp:Label>
-                        <asp:TextBox ID="creditCardNumber" runat="server" CssClass="form-control"></asp:TextBox>
-                    </div>
-
-                    <div class="form-group">
-                        <asp:Label ID="Label4" runat="server" Text="Credit card expiration dates:"></asp:Label>
-                        <asp:TextBox ID="expirationDates" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
 
                 </div>

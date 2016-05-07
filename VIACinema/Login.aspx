@@ -15,7 +15,7 @@
                     </div>
 
                     <div class="form-group">
-                        <asp:Label ID="Label2" runat="server" Text="Email"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
                         <asp:TextBox ID="password" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
                     </div>
 
