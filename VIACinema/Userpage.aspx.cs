@@ -66,14 +66,16 @@ namespace VIACinema
                         cc = new Models.CreditCard();
                         cc.Code = number.Text;
                         cc.ExpirationDate = expirationdate.Text;
-                        cc.UserId = user.Id;
+                        cc.User = user;
 
                         db.CreditCards.Add(cc);
                         db.SaveChanges();
+                        
+                        (Master as Main).Show_Alert("New Credit Card added successfully!", "success");
                     }
                     catch (Exception ex)
                     {
-                        (Master as Main).Show_Alert("Error" + e, "error");
+                        (Master as Main).Show_Alert(ex.Message, "error");
                     }
                 }
             }
