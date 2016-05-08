@@ -104,6 +104,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddCreditCard.aspx" />
     <Content Include="Administration\AddMovie.aspx" />
     <Content Include="Administration\AddMovieSession.aspx" />
     <Content Include="Administration\AddStage.aspx" />
@@ -179,10 +180,17 @@
     <Content Include="scripts\jquery-2.2.3.min.js" />
     <Content Include="scripts\npm.js" />
     <Content Include="SeatReservation.aspx" />
-    <Content Include="Userpage.aspx" />
+    <Content Include="UserPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCreditCard.aspx.cs">
+      <DependentUpon>AddCreditCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddCreditCard.aspx.designer.cs">
+      <DependentUpon>AddCreditCard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administration\AddMovie.aspx.cs">
       <DependentUpon>AddMovie.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -301,12 +309,12 @@
     <Compile Include="SeatReservation.aspx.designer.cs">
       <DependentUpon>SeatReservation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Userpage.aspx.cs">
-      <DependentUpon>Userpage.aspx</DependentUpon>
+    <Compile Include="UserPage.aspx.cs">
+      <DependentUpon>UserPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Userpage.aspx.designer.cs">
-      <DependentUpon>Userpage.aspx</DependentUpon>
+    <Compile Include="UserPage.aspx.designer.cs">
+      <DependentUpon>UserPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

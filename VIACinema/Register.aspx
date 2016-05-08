@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    
     <div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3">
             <div class="panel panel-default">
@@ -35,5 +35,4 @@
             </div>
         </div>
     </div>
-
 </asp:Content>

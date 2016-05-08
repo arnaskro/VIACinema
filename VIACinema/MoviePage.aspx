@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
     <div class="page-header">
         <h1 id="MovieHeading" runat="server"><span class="glyphicon glyphicon-film"></span> <strong><span id="MovieTitle" runat="server">Movie</span></strong> <small>(<span id="MovieYear" runat="server">2016</span>)</small></h1>
     </div>
@@ -55,5 +56,4 @@
             </tbody></table>
         </FooterTemplate>
     </asp:Repeater>
-
 </asp:Content>

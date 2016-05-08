@@ -43,12 +43,12 @@ namespace VIACinema
         {
             if (Session["user"] != null)
             {
-                var creditCards = ((User)Session["User"]).CreditCards;
+                var creditCards = (new CinemaContext()).Users.Find(((User)Session["user"]).Id).CreditCards;
 
                 if (creditCards.Count > 0)
                 {
                     CreditCardSelect.Visible = true;
-                    CreditCardList.DataSource = ((User)Session["User"]).CreditCards;
+                    CreditCardList.DataSource = creditCards;
                 }
             }
         }

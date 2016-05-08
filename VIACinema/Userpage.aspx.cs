@@ -8,77 +8,107 @@ using VIACinema.Models;
 
 namespace VIACinema
 {
-    public partial class Userpage : System.Web.UI.Page
+    public partial class UserPage : System.Web.UI.Page
     {
         private User user;
-        private CreditCard cc = null;
+        private List<CreditCard> creditCards;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (var db = new CinemaContext())
+            if (!Page.IsPostBack)
             {
-                user = (User)Session["user"];
-
-                name.Text = user.Name;
-                password.Text = user.Password;
-
-                var query = from q
-                          in db.CreditCards
-                            select q;
-
-                CreditCard[] creditCards = query.ToArray<CreditCard>();
-                for (int i = 0; i < creditCards.Length; i++)
+                if (Session["user"] != null)
                 {
-                    if (creditCards[i].UserId == user.Id)
-                    {
-                        cc = creditCards[i];
-                        break;
-                    }
-                }
-                if (cc != null)
+                    user = (new CinemaContext()).Users.Find(((User)Session["user"]).Id);
+                    creditCards = user.CreditCards.ToList();
+                
+                    initializeFields();
+                } else
                 {
-                    number.Text = cc.Code;
-                    expirationdate.Text = "" + cc.ExpirationDate;
+                    Server.Transfer("/Home.aspx", true);
                 }
+            }
+            
+        }
+        
+        private void loadCreditCards()
+        { 
+            // Credit Card fields
+            if (creditCards.Count > 0)
+            {
+                ListCreditCards.DataSource = creditCards;
+                ListCreditCards.DataBind();
 
+            }
+            else
+            {
+                CreditCardPanelBody.Visible = true;
+                ListCreditCards.Visible = false;
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        private void initializeFields()
+        {
+            // User info data fields
+            Email.Text = user.Email;
+            Name.Text = user.Name;
+            Address.Text = user.Address;
+
+            loadCreditCards();
+
+        }
+        
+
+        protected void SubmitChanges_Click(object sender, EventArgs e)
         {
             using (var db = new CinemaContext())
             {
-                if (name.Text != null)
-                    db.Users.Find(user.Id).Name = name.Text;
-                if (password.Text != null)
-                    db.Users.Find(user.Id).Password = password.Text;
-                if (cc != null)
+                try
                 {
-                    if (number.Text != null)
-                        db.CreditCards.Find(cc.Id).Code = number.Text;
-                    if (expirationdate.Text != null)
-                        db.CreditCards.Find(cc.Id).ExpirationDate = expirationdate.Text;
-                }
-                else
-                {
-                    try
-                    {
-                        cc = new Models.CreditCard();
-                        cc.Code = number.Text;
-                        cc.ExpirationDate = expirationdate.Text;
-                        cc.User = user;
+                    user = db.Users.Find(((User)Session["user"]).Id);
 
-                        db.CreditCards.Add(cc);
-                        db.SaveChanges();
-                        
-                        (Master as Main).Show_Alert("New Credit Card added successfully!", "success");
-                    }
-                    catch (Exception ex)
-                    {
-                        (Master as Main).Show_Alert(ex.Message, "error");
-                    }
+                    user.Email = Email.Text;
+                    user.Name = Name.Text;
+                    user.Address = Address.Text;
+                    
+                    db.SaveChanges();
+
+                    Session["user"] = user;
+                    ((Label)(Master as Main).FindControl("UserName")).Text = user.Name;
+                    (Master as Main).Show_Alert("User info updated!", "info");
+                }
+                catch (Exception ex)
+                {
+                    (Master as Main).Show_Alert("Error!" + ex.Message, "error");
                 }
             }
+        }
+
+        protected void ListCreditCards_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            DataListItem item = e.Item;
+
+            int cardID = int.Parse(((Label)item.FindControl("ccCardId")).Text);
+            
+            using (var db = new CinemaContext())
+            {
+                try
+                {
+                    db.CreditCards.Remove(db.CreditCards.Find(cardID));
+                    db.SaveChanges();
+                    (Master as Main).Show_Alert("Credit Card removed!", "info");
+                    Response.Redirect("/UserPage.aspx");
+                }
+                catch (Exception ex)
+                {
+                    (Master as Main).Show_Alert("Error!" + ex.Message, "error");
+                }
+            }
+        }
+
+        protected void ListCreditCards_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
