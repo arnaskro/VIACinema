@@ -104,6 +104,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddCreditCard.aspx" />
     <Content Include="Administration\AddMovie.aspx" />
     <Content Include="Administration\AddMovieSession.aspx" />
     <Content Include="Administration\AddStage.aspx" />
@@ -120,6 +121,7 @@
     <Content Include="Content\images\seat-yellow.png" />
     <Content Include="Content\images\VIACINEMALOGO.png" />
     <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="MoviePage.aspx">
       <BrowseToURL>~/MoviePage.aspx</BrowseToURL>
     </Content>
@@ -178,9 +180,17 @@
     <Content Include="scripts\jquery-2.2.3.min.js" />
     <Content Include="scripts\npm.js" />
     <Content Include="SeatReservation.aspx" />
+    <Content Include="UserPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCreditCard.aspx.cs">
+      <DependentUpon>AddCreditCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddCreditCard.aspx.designer.cs">
+      <DependentUpon>AddCreditCard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administration\AddMovie.aspx.cs">
       <DependentUpon>AddMovie.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -219,6 +229,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
@@ -291,6 +308,13 @@
     </Compile>
     <Compile Include="SeatReservation.aspx.designer.cs">
       <DependentUpon>SeatReservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPage.aspx.cs">
+      <DependentUpon>UserPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPage.aspx.designer.cs">
+      <DependentUpon>UserPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

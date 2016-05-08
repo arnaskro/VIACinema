@@ -16,8 +16,7 @@ namespace VIACinema.Models
     {
         public int Id { get; set; }
         public string Code { get; set; }
-        public System.DateTime ExpirationDate { get; set; }
-        public System.Guid CVC { get; set; }
+        public string ExpirationDate { get; set; }
         public int UserId { get; set; }
     
         public virtual User User { get; set; }

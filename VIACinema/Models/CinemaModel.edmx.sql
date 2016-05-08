@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/06/2016 11:11:42
+-- Date Created: 05/07/2016 18:07:36
 -- Generated from EDMX file: C:\Users\arnas\OneDrive\VisualStudio\VIACinema\VIACinema\VIACinema\Models\CinemaModel.edmx
 -- --------------------------------------------------
 
@@ -120,8 +120,7 @@ GO
 CREATE TABLE [dbo].[CreditCards] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Code] nvarchar(max)  NOT NULL,
-    [ExpirationDate] datetime  NOT NULL,
-    [CVC] uniqueidentifier  NOT NULL,
+    [ExpirationDate] nvarchar(max)  NOT NULL,
     [UserId] int  NOT NULL
 );
 GO

@@ -21,7 +21,7 @@ namespace VIACinema
 
                 user = (User) Session["user"];
 
-                UserLink.HRef = "~/UserPage.aspx?Id=" + user.Id;
+                UserLink.HRef = "~/UserPage.aspx";
                 UserName.InnerText = user.Name;
             }
         }
