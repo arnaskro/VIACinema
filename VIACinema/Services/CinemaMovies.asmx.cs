@@ -45,6 +45,32 @@ namespace VIACinema.Services
             return availableMoviesToReturn;
         }
 
+        [WebMethod]
+        public List<MovieSessionS> GetAvailableMovieSessions(int MovieID)
+        {
+            // Get all availables movies
+            var availableMovieSession = Helper.GetAvailableMovieSessions(MovieID);
+
+            // Initialize a new list of Service model Movie to store converted models
+        var availableMovieSessionToReturn = new List<MovieSessionS>();
+
+            // Covert each model to our new model
+            foreach (var movieSession in availableMovieSession)
+            {
+                var convertedMovie = new MovieSessionS();
+                convertedMovie.Id = movieSession.Id;
+                convertedMovie.Price = movieSession.Price;
+                convertedMovie.SessionDate = movieSession.SessionDate;
+                convertedMovie.MovieId = movieSession.MovieId;
+                convertedMovie.StageId = movieSession.StageId;
+
+                // Add it the list
+                availableMovieSessionToReturn.Add(convertedMovie);
+            }
+
+            return availableMovieSessionToReturn;
+        }
+
 
     }
 }
