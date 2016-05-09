@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/07/2016 18:07:36
+-- Date Created: 05/09/2016 12:44:34
 -- Generated from EDMX file: C:\Users\arnas\OneDrive\VisualStudio\VIACinema\VIACinema\VIACinema\Models\CinemaModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [C:\USERS\ARNAS\ONEDRIVE\VISUALSTUDIO\VIACINEMA\VIACINEMA\VIACINEMA\APP_DATA\DBCINEMA.MDF];
+USE [C:\Users\arnas\OneDrive\VisualStudio\VIACinema\VIACinema\VIACinema\App_Data\DBCinema.mdf];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO

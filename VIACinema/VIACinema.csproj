@@ -180,6 +180,7 @@
     <Content Include="scripts\jquery-2.2.3.min.js" />
     <Content Include="scripts\npm.js" />
     <Content Include="SeatReservation.aspx" />
+    <Content Include="Services\CinemaMovies.asmx" />
     <Content Include="UserPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -274,6 +275,8 @@
     <Compile Include="Models\Seat.cs">
       <DependentUpon>CinemaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ServiceModels\MovieS.cs" />
+    <Compile Include="Models\ServiceModels\MovieSessionS.cs" />
     <Compile Include="Models\Stage.cs">
       <DependentUpon>CinemaModel.tt</DependentUpon>
     </Compile>
@@ -308,6 +311,10 @@
     </Compile>
     <Compile Include="SeatReservation.aspx.designer.cs">
       <DependentUpon>SeatReservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\CinemaMovies.asmx.cs">
+      <DependentUpon>CinemaMovies.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UserPage.aspx.cs">
       <DependentUpon>UserPage.aspx</DependentUpon>
