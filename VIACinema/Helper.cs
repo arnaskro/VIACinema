@@ -50,6 +50,11 @@ namespace VIACinema
             }
         }
 
+        public static List<MovieSession> GetAvailableMovieSessions(int MovieID)
+        {
+            return GetAvailableMovieSessions((new CinemaContext()).Movies.Find(MovieID));
+        }
+
         public static List<MovieSession> GetAvailableMovieSessions(Movie movie)
         {
             // Create an empty MovieSession list instance to store available movies
