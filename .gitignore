@@ -51,3 +51,11 @@ packages/
 VIACinema/bin/
 VIACinema/obj/
 .vs/config/applicationhost.config
+.vs/VIACinema/v14/.suo
+VIACinema/bin/VIACinema.pdb
+VIACinema/bin/VIACinema.dll
+VIACinema/App_Data/DBCinema_log.ldf
+VIACinema/App_Data/DBCinema.mdf
+VIACinema/obj/Debug/VIACinema.pdb
+VIACinema/obj/Debug/VIACinema.dll
+VIACinema/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
