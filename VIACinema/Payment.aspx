@@ -42,7 +42,7 @@
 
                 <asp:Panel ID="CreditCardSelect" runat="server" Visible="false">
                     <asp:Label ID="CreditCardListLabel" runat="server" Text="Your credit cards"></asp:Label><br />
-                    <asp:DropDownList ID="CreditCardList" runat="server" CssClass="form-control"></asp:DropDownList>
+                    <asp:DropDownList ID="CreditCardList" runat="server" CssClass="form-control" OnSelectedIndexChanged="CreditCardList_SelectedIndexChanged"></asp:DropDownList>
                     <hr />
                     <p class="lead text-center">Select a card or add a new one</p>
                     <hr />

@@ -44,13 +44,31 @@ namespace VIACinema
             if (Session["user"] != null)
             {
                 var creditCards = (new CinemaContext()).Users.Find(((User)Session["user"]).Id).CreditCards;
+                var creditCardsList = new List<CreditCard>();
+
+                var dummyCard = new CreditCard();
+                dummyCard.Code = "-- Select a Credit Card --";
+                dummyCard.Id = 0;
+
+                creditCardsList.Add(dummyCard);
+
+                foreach (var creditCard in creditCards)
+                    creditCardsList.Add(creditCard);
 
                 if (creditCards.Count > 0)
                 {
                     CreditCardSelect.Visible = true;
-                    CreditCardList.DataSource = creditCards;
+                    CreditCardList.DataTextField = "Code";
+                    CreditCardList.DataValueField = "Id";
+                    CreditCardList.DataSource = creditCardsList;
+                    CreditCardList.DataBind();
                 }
             }
+        }
+
+        protected void CreditCardList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
