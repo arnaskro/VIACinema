@@ -15,7 +15,7 @@ namespace ConsoleApplication1
             {
                 var movies = sr.GetAvailableMovies();
 
-                foreach (var movie in movies)
+                foreach (ServiceReference1.MovieS movie in movies)
                 {
                     Console.WriteLine(movie.Title);
                 }

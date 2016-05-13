@@ -86,6 +86,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -146,6 +147,11 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Properties\DataSources\System.Xml.XmlNode.datasource" />
+    <None Include="Service References\CreditCardValidator\validate.wsdl" />
+    <Content Include="Service References\CreditCardValidator\VIACinema.CreditCardValidator.Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -180,6 +186,13 @@
     <Content Include="scripts\jquery-2.2.3.min.js" />
     <Content Include="scripts\npm.js" />
     <Content Include="SeatReservation.aspx" />
+    <None Include="Service References\CreditCardValidator\validate.disco" />
+    <None Include="Service References\CreditCardValidator\configuration91.svcinfo" />
+    <None Include="Service References\CreditCardValidator\configuration.svcinfo" />
+    <None Include="Service References\CreditCardValidator\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Services\CinemaMovies.asmx" />
     <Content Include="UserPage.aspx" />
     <Content Include="Web.config" />
@@ -312,6 +325,11 @@
     <Compile Include="SeatReservation.aspx.designer.cs">
       <DependentUpon>SeatReservation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Service References\CreditCardValidator\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Services\CinemaMovies.asmx.cs">
       <DependentUpon>CinemaMovies.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -326,6 +344,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CreditCardValidator\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
