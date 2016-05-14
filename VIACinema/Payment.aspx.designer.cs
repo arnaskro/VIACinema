@@ -67,6 +67,15 @@ namespace VIACinema {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl InfoTotalPrice;
         
         /// <summary>
+        /// PanelDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PanelDetails;
+        
+        /// <summary>
         /// CreditCardSelect control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,24 @@ namespace VIACinema {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel CreditCardInfo;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// UserEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox UserEmail;
         
         /// <summary>
         /// CCnumberLabel control.
@@ -139,21 +166,12 @@ namespace VIACinema {
         protected global::System.Web.UI.WebControls.TextBox CCexpDate;
         
         /// <summary>
-        /// CCcodeLabel control.
+        /// ConfirmPayment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CCcodeLabel;
-        
-        /// <summary>
-        /// CCcode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CCcode;
+        protected global::System.Web.UI.WebControls.Button ConfirmPayment;
     }
 }

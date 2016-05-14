@@ -10,13 +10,16 @@
                 <div class="panel-body">
 
                     <div class="form-group">
-                        <asp:Label ID="Label4" runat="server" Text="Credit Card Number"></asp:Label>
-                        <asp:TextBox ID="CreditCardNumber" runat="server" CssClass="form-control"></asp:TextBox>
+                        <strong><asp:Label ID="Label4" runat="server" Text="Credit Card number"></asp:Label></strong>
+                        <asp:TextBox ID="CreditCardNumber" runat="server" class="form-control" placeholder="Ex: 4012888888881881"></asp:TextBox>
                     </div>
 
                     <div class="form-group">
-                        <asp:Label ID="Label5" runat="server" Text="Expiration Date"></asp:Label>
-                        <asp:TextBox ID="ExpirationDate" runat="server" CssClass="form-control"></asp:TextBox>
+                        <strong><asp:Label ID="Label5" runat="server" Text="Credit Card Expiration date"></asp:Label></strong>
+                        <asp:TextBox ID="ExpirationDate" runat="server" class="form-control" placeholder="Ex: 0918"></asp:TextBox>
+                        <div class="row">
+                            <div class="col-xs-12 text-center"><small>Where in example <strong>09</strong> is a month number and <strong>18</strong> are the last 2 digits of the year</small></div>
+                        </div>
                     </div>
 
                 </div>

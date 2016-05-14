@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <div class="col-xs-12 col-md-6">
+        <div class="col-xs-12 col-md-6" runat="server" id="PanelDetails">
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">Details</h3>
@@ -41,30 +41,41 @@
               <div class="panel-body">
 
                 <asp:Panel ID="CreditCardSelect" runat="server" Visible="false">
-                    <asp:Label ID="CreditCardListLabel" runat="server" Text="Your credit cards"></asp:Label><br />
-                    <asp:DropDownList ID="CreditCardList" runat="server" CssClass="form-control" OnSelectedIndexChanged="CreditCardList_SelectedIndexChanged"></asp:DropDownList>
+                    <strong><asp:Label ID="CreditCardListLabel" runat="server" Text="Your credit cards"></asp:Label></strong><br />
+                    <asp:DropDownList ID="CreditCardList" runat="server" CssClass="form-control"></asp:DropDownList>
                     <hr />
                     <p class="lead text-center">Select a card or add a new one</p>
                     <hr />
                 </asp:Panel>
 
                 <asp:Panel ID="CreditCardInfo" runat="server" Visible="true">
-                    <div class="form-group">
-                        <asp:Label ID="CCnumberLabel" runat="server" Text="Credit Card number"></asp:Label>
-                        <asp:TextBox ID="CCnumber" runat="server" class="form-control"></asp:TextBox>
+                    <div class="form-group" runat="server" Visible="true">
+                        <strong><asp:Label ID="Label1" runat="server" Text="E-Mail address"></asp:Label></strong>
+                        <asp:TextBox ID="UserEmail" runat="server" class="form-control"></asp:TextBox>
                     </div>
                     <div class="form-group">
-                        <asp:Label ID="CCexpDateLabel" runat="server" Text="Credit Card Expiration date"></asp:Label>
-                        <asp:TextBox ID="CCexpDate" runat="server" class="form-control" type="date"></asp:TextBox>
+                        <strong><asp:Label ID="CCnumberLabel" runat="server" Text="Credit Card number"></asp:Label></strong>
+                        <asp:TextBox ID="CCnumber" runat="server" class="form-control" placeholder="Ex: 5555555555554444"></asp:TextBox>
                     </div>
                     <div class="form-group">
-                        <asp:Label ID="CCcodeLabel" runat="server" Text="Credit Card CVC code"></asp:Label>
-                        <asp:TextBox ID="CCcode" runat="server" class="form-control"></asp:TextBox>
+                        <strong><asp:Label ID="CCexpDateLabel" runat="server" Text="Credit Card Expiration date"></asp:Label></strong>
+                        <asp:TextBox ID="CCexpDate" runat="server" class="form-control" placeholder="Ex: 0918"></asp:TextBox>
+                        <div class="row">
+                            <div class="col-xs-12 text-center"><small>Where in example <strong>09</strong> is a month number and <strong>18</strong> are the last 2 digits of the year</small></div>
+                        </div>
                     </div>
                 </asp:Panel>  
 
               </div>
             </div>
         </div>
+
     </div>
+    <div class="row">
+        <hr />
+        <div class="text-center">
+            <asp:Button ID="ConfirmPayment" runat="server" class="btn btn-success btn-lg" Text="Confirm Payment" OnClick="ConfirmPayment_Click"  />
+        </div>
+    </div>
+
 </asp:Content>
