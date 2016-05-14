@@ -47,6 +47,8 @@
                 <li><a href="/Administration/AddMovieSession.aspx">Add Movie Session</a></li>
                 <li><a href="/Administration/AddMovie.aspx">Add Movie</a></li>
                 <li><a href="/Administration/AddStage.aspx">Add Stage</a></li>
+                <li><a href="/Administration/ManageUsers.aspx">Manage Users</a></li>
+                  <li><a href="/Administration/ManageReservations.aspx">Manage Reservations</a></li>
               </ul>
         </li>
              <li><a href="/Logout.aspx">Logout</a></li>

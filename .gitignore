@@ -63,3 +63,7 @@ VIACinema/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 .vs/VIACinema/v14/.suo
 VIACinema/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 VIACinema/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+VIACinema/obj/Debug/VIACinema.dll
+*.mdf
+VIACinema/App_Data/DBCinema.mdf
+VIACinema/bin/VIACinema.pdb
