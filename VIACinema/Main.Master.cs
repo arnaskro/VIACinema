@@ -24,7 +24,7 @@ namespace VIACinema
                 UserLink.HRef = "~/UserPage.aspx";
                 UserName.InnerText = user.Name;
 
-                if (user.Admin == true)
+                if (user.Admin)
                     AdministrationControl.Visible = true;
             }
         }
