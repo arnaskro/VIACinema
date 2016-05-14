@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Diagnostics;
 using VIACinema.Models;
 
 namespace VIACinema
@@ -30,7 +29,6 @@ namespace VIACinema
                     u.Address = address.Text;
                     u.Email = email.Text;
                     u.Password = password.Text;
-                    Debug.WriteLine("Here::: " + db.Users.Where(user => user.Email == u.Email).Count());
                     if (db.Users.Where(user => user.Email == u.Email).Count() == 0)
                     {
                         db.Users.Add(u);

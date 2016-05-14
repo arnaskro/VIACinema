@@ -109,6 +109,7 @@
     <Content Include="Administration\AddMovie.aspx" />
     <Content Include="Administration\AddMovieSession.aspx" />
     <Content Include="Administration\AddStage.aspx" />
+    <Content Include="Administration\ManageReservations.aspx" />
     <Content Include="Content\css\bootstrap-theme.css" />
     <Content Include="Content\css\bootstrap-theme.min.css" />
     <Content Include="Content\css\bootstrap.css" />
@@ -123,6 +124,7 @@
     <Content Include="Content\images\VIACINEMALOGO.png" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
+    <Content Include="Administration\ManageUsers.aspx" />
     <Content Include="MoviePage.aspx">
       <BrowseToURL>~/MoviePage.aspx</BrowseToURL>
     </Content>
@@ -226,6 +228,13 @@
     <Compile Include="Administration\AddStage.aspx.designer.cs">
       <DependentUpon>AddStage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administration\ManageReservations.aspx.cs">
+      <DependentUpon>ManageReservations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\ManageReservations.aspx.designer.cs">
+      <DependentUpon>ManageReservations.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -257,6 +266,13 @@
     </Compile>
     <Compile Include="Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\ManageUsers.aspx.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\ManageUsers.aspx.designer.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\CinemaModel.Context.cs">
       <AutoGen>True</AutoGen>
