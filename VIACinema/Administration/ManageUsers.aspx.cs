@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using VIACinema.Models;
 
-namespace VIACinema
+namespace VIACinema.Administration
 {
     public partial class ManageUsers : System.Web.UI.Page
     {
@@ -51,7 +51,17 @@ namespace VIACinema
             {
                 try
                 {
-                    db.Users.Remove(db.Users.Find(userId));
+                    var user = db.Users.Find(userId);
+                    var UserReservations = db.Reservations.Where(r => r.UserId == user.Id);
+                    var UserCreditCard = db.CreditCards.Where(c => c.UserId == user.Id);
+
+                    foreach(var ur in UserReservations)
+                        db.Reservations.Remove(ur);
+                    
+                    foreach (var uc in UserCreditCard)
+                        db.CreditCards.Remove(uc);
+                    
+                    db.Users.Remove(user);
                     db.SaveChanges();
                     (Master as Main).Show_Alert("User removed!", "info");
                     Response.Redirect("/Administration/ManageUsers.aspx");

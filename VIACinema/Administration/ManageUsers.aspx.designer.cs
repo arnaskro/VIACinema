@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VIACinema {
+namespace VIACinema.Administration {
     
     
     public partial class ManageUsers {
