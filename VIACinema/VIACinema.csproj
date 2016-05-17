@@ -128,6 +128,7 @@
     <Content Include="MoviePage.aspx">
       <BrowseToURL>~/MoviePage.aspx</BrowseToURL>
     </Content>
+    <Content Include="Movies.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -318,6 +319,13 @@
     </Compile>
     <Compile Include="MoviePage.aspx.designer.cs">
       <DependentUpon>MoviePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movies.aspx.cs">
+      <DependentUpon>Movies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movies.aspx.designer.cs">
+      <DependentUpon>Movies.aspx</DependentUpon>
     </Compile>
     <Compile Include="Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
